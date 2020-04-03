@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+<head>
+        <meta charset="utf-8" />
+        <title>田冲憨娃</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">田冲憨娃</a></h1>
+                <nav><ul>
+                    <li><a href="/category/ge-ren-sheng-huo.html">个人,生活</a></li>
+                    <li><a href="/category/ji-zhu-jiao-cheng-pelicanpythongithub-page.html">技术,教程,pelican,python,github page</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/create-blog.html">使用pelican在GitHub上搭建博客（一）</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2020-04-03T21:25:00+08:00">
+                Published: 周五 03 四月 2020
+        </abbr>
+		<br />
+        <abbr class="modified" title="2020-04-03T21:25:00+08:00">
+                Updated: 周五 03 四月 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/tian-chong-han-wa.html">田冲憨娃</a>
+        </address>
+<p>In <a href="/category/ji-zhu-jiao-cheng-pelicanpythongithub-page.html">技术,教程,pelican,python,github page</a>.</p>
+<p>tags: <a href="/tag/jiao-cheng.html">教程</a> </p>
+</footer><!-- /.post-info --><h2>目录<br/></h2>
+<p>第一步：准备环境<br/>
+第二步：搭建本地blog环境<br/>
+第三步：编写blog并本地测试<br/>
+第四步：上传至gitbu并网络访问<br/>
+附：更换电脑如何操作
+<br/></p>
+<h2>第一步，环境搭建</h2>
+<p>1、注册GitHub<br/>
+2、在GitHub上创建空的库<br/>
+&ensp;&ensp;&ensp;&ensp;库名为：<strong><em>yourname</em></strong>.github.io（换成你自己的）<br/>
+&ensp;&ensp;&ensp;&ensp;<em>例如我的：unclevicky.github.io</em><br/>
+3、安装python<br/>
+4、安装python所需要的包<br/></p>
+<div class="highlight"><pre><span></span><code><span class="err">pip install virtualenv</span>
+<span class="err">pip install pelican</span>
+<span class="err">pip install markdown  </span>
+</code></pre></div>
+
+
+<p><br/></p>
+<h2>第二步，搭建本地blog环境</h2>
+<p>1、首先用virtualenv创建一个env<br/></p>
+<div class="highlight"><pre><span></span><code><span class="err">mkdir blog</span>
+<span class="err">cd blog</span>
+<span class="err">virtualenv env</span>
+<span class="err">source env/bin/activate  #激活环境</span>
+</code></pre></div>
+
+
+<p>2、创建pelican目录结构<br/></p>
+<div class="highlight"><pre><span></span><code><span class="err">pelican-quickstart</span>
+</code></pre></div>
+
+
+<p><strong><em>根据提示进行设置</em></strong><br>
+<br/>&gt; Where do you want to create your new web site? [.]
+<br/>&gt; What will be the title of this web site? 田冲憨娃
+<br/>&gt; Who will be the author of this web site? unclevicky
+<br/>&gt; What will be the default language of this web site? [en] zh
+<br/>&gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n)
+<br/>&gt; What is your URL prefix? (see above example; no trailing slash) unclevicky.com
+<br/>&gt; Do you want to enable article pagination? (Y/n)y
+<br/>&gt; How many articles per page do you want? [10]
+<br/>&gt; What is your time zone? [Asia/Shanghai] 
+<br/>&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n)y
+<br/>&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n)y
+<br/>&gt; Do you want to upload your website using FTP? (y/N) n
+<br/>&gt; Do you want to upload your website using SSH? (y/N) n
+<br/>&gt; Do you want to upload your website using Dropbox? (y/N) n
+<br/>&gt; Do you want to upload your website using S3? (y/N) n
+<br/>&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) n
+<br/>&gt; Do you want to upload your website using GitHub Pages? (y/N)n
+<br/>&gt;Done. Your new project is available at D:\coding\git\blog</p>
+<p><strong><em>文件结构如下：</em></strong><br>
+<br/>blog/
+<br/>├── content              # 写的文章放这里
+<br/>├── output               # 生成的输出文件（发布的内容）
+<br/>├── develop_server.sh 
+<br/>├── Makefile             # 方便管理博客的Makefile
+<br/>├── pelicanconf.py       # 主配置文件
+<br/>└── publishconf.py
+<br/>  </p>
+<h2>第三步：编写blog并本地测试</h2>
+<p>1.在blog/content目录下建立一个markdown文件（例如test.md),内容如下：</p>
+<div class="highlight"><pre><span></span><code><span class="n">Title</span><span class="o">:</span> <span class="err">写在前面</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">03</span> <span class="mi">20</span><span class="o">:</span><span class="mi">37</span>
+<span class="n">Modified</span><span class="o">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">03</span> <span class="mi">20</span><span class="o">:</span><span class="mi">37</span>
+<span class="n">Category</span><span class="o">:</span> <span class="err">个人</span><span class="o">,</span><span class="err">生活</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="err">随笔</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">buildblog</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">Author</span><span class="o">:</span> <span class="err">田冲憨娃</span>
+
+<span class="err">###</span> <span class="err">前言</span>
+<span class="err">从小时候开始就喜欢记日记，前前后后写了</span><span class="mi">20</span><span class="err">多本，一直延续到大一，后来在</span><span class="n">QQ空间里写</span><span class="err">，再后来在</span><span class="n">csdn</span><span class="err">、网易博客上写，但因时间原因终究没有坚持下来。多年的习惯，不管是看到什么、学到什么，如果不写下来就仿佛经历过一样。这么多年过去了，忽然发现，这些年什么也没有积累下。</span>
+</code></pre></div>
+
+
+<p>2.本地测试</p>
+<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="err">在</span><span class="n">blog目录下执行</span>
+<span class="n">pelican</span> <span class="n">content</span> <span class="o">#</span> <span class="err">根据</span><span class="n">content中的内容</span><span class="err">，生成静态网站到</span><span class="n">output目下</span>
+
+<span class="o">#</span> <span class="err">在</span><span class="n">output目录下执行</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pelican</span><span class="p">.</span><span class="n">server</span>
+</code></pre></div>
+
+
+<p>&ensp;&ensp;&ensp;&ensp;以上两个命令执行完，没有报错的话就用浏览器打开：127.0.0.1:8000，效果如下:<br/> 
+<img alt="本地测试" src="pic/foremost/1.png" title="本地测试"><br/> 
+<strong><em>输入：ctrl + c 停止服务</em></strong>
+<br/> </p>
+<h2>第四步：上传至gitbu并网络访问</h2>
+<div class="highlight"><pre><span></span><code><span class="err">cd output</span>
+<span class="err">git init</span>
+<span class="err">git add .</span>
+<span class="err">git commit -m &quot;第一篇博客&quot;</span>
+<span class="err">git remote add origin https://github.com/yourname/yourname.github.io.git</span>
+<span class="err">#换成你自己的Github账号和库名称,例如我的 https://github.com/unclevicky/unclevicky.github.io.git</span>
+<span class="err">git push -u origin master</span>
+</code></pre></div>
+
+
+<p>最后访问：https://<strong><em>yourname</em></strong>.github.io/ <br/> 
+<em>例如我的就是：https://unclevicky.github.io/</em>
+<br/> </p>
+<h2>附：更换电脑如何操作</h2>
+<p>1、执行上述第一步<br/>
+2、执行上述第二步<br/>
+3、先把gitbug服务器上的代码pull到output里<br/></p>
+<div class="highlight"><pre><span></span><code><span class="err">#output目录</span>
+<span class="err">git clone https://github.com/unclevicky/unclevicky.github.io.git .</span>
+</code></pre></div>
+
+
+<p>4、在content目录编写新的md，之前的md也可以copy过来<br/>
+5、生成博客文章文件，并上传到gitbub上<br/></p>
+<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="err">在</span><span class="n">blog目录下执行</span>
+<span class="n">pelican</span> <span class="n">content</span> <span class="o">#</span> <span class="err">根据</span><span class="n">content中的内容</span><span class="err">，生成静态网站到</span><span class="n">output目下</span>
+
+<span class="o">#</span> <span class="err">在</span><span class="n">output目录下执行</span>
+<span class="n">git</span> <span class="n">stash</span>  <span class="o">#</span> <span class="err">将修改存⾄缓存区（开关机不会丢失）</span>
+<span class="n">git</span> <span class="n">stash</span> <span class="n">pop</span>   <span class="o">#</span><span class="err">需要提交前恢复暂存区内容</span>
+<span class="n">git</span> <span class="k">add</span> <span class="p">.</span> <span class="o">#</span> <span class="err">添加文件，已经添加的不会重复添加</span>
+<span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;今日的博客&#39;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span> <span class="o">#</span> <span class="err">提交</span>
+</code></pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/foremost.html" rel="bookmark"
+                           title="Permalink to 写在前面">写在前面</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-04-03T20:37:00+08:00">
+                Published: 周五 03 四月 2020
+        </abbr>
+		<br />
+        <abbr class="modified" title="2020-04-03T20:37:00+08:00">
+                Updated: 周五 03 四月 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/tian-chong-han-wa.html">田冲憨娃</a>
+        </address>
+<p>In <a href="/category/ge-ren-sheng-huo.html">个人,生活</a>.</p>
+<p>tags: <a href="/tag/sui-bi.html">随笔</a> </p>
+</footer><!-- /.post-info -->                <h3>前言</h3>
+<p>&ensp;&ensp;&ensp;&ensp;从小时候开始就喜欢记日记，前前后后写了20多本，一直延续到大一，后来在QQ空间里写，再后来在csdn、网易博客上写，但因时间原因终究没有坚持下来。<br/>
+&ensp;&ensp;&ensp;&ensp;多年的习惯，不管是看到什么、学到什么，如果不写下来就仿佛经历过一样。这么多年过去了，忽然发现，这些年什么也没有积累下。</p>
+                <a class="readmore" href="/foremost.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
