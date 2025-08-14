@@ -94,8 +94,7 @@ n&lt;br&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;以上两个命令执行完，没有报错的话就用浏览器打开：127.0.0.1:8000，效果如下:  &lt;/p&gt;
-&lt;p&gt;&lt;img src="https://unclevicky.github.io/theme/images/pic/foremost/1.png"
-title="测试截图" style="width:100.0%" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="本地测试截图" src="/images/tutorial/local_test.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;输入：ctrl + c 停止服务&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
 &lt;h2&gt;第四步：上传至gitbu并网络访问&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;output
