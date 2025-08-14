@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>田冲憨娃 - 技术,教程,pelican,python,github page</title><link href="https://unclevicky.github.io/" rel="alternate"/><link href="https://unclevicky.github.io/feeds/ji-zhu-jiao-cheng-pelicanpythongithub-page.atom.xml" rel="self"/><id>https://unclevicky.github.io/</id><updated>2020-04-03T21:37:00+08:00</updated><entry><title>使用pelican在GitHub上搭建博客（一）</title><link href="https://unclevicky.github.io/2020/04/pelican-setup/" rel="alternate"/><published>2020-04-03T21:37:00+08:00</published><updated>2020-04-03T21:37:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:unclevicky.github.io,2020-04-03:/2020/04/pelican-setup/</id><summary type="html">&lt;h2&gt;目录&lt;/h2&gt;
+&lt;p&gt;第一步：准备环境&lt;br&gt;
+第二步：搭建本地blog环境&lt;br&gt;
+第三步：编写blog并本地测试&lt;br&gt;
+第四步：上传至gitbu并网络访问&lt;br&gt;
+附：更换电脑如何操作  &lt;/p&gt;
+&lt;h2&gt;第一步，环境搭建&lt;/h2&gt;
+&lt;p&gt;1、注册GitHub …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;目录&lt;/h2&gt;
+&lt;p&gt;第一步：准备环境&lt;br&gt;
+第二步：搭建本地blog环境&lt;br&gt;
+第三步：编写blog并本地测试&lt;br&gt;
+第四步：上传至gitbu并网络访问&lt;br&gt;
+附：更换电脑如何操作  &lt;/p&gt;
+&lt;h2&gt;第一步，环境搭建&lt;/h2&gt;
+&lt;p&gt;1、注册GitHub&lt;br&gt;
+2、在GitHub上创建空的库  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    库名为：***yourname***.github.io（换成你自己的）  
+    &lt;span class="ge"&gt;*例如我的：unclevicky.github.io*&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;3、安装python&lt;br&gt;
+4、安装python所需要的包  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;virtualenv
+&lt;span class="w"&gt;    &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;pelican
+&lt;span class="w"&gt;    &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;markdown&lt;span class="w"&gt;  &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;第二步，搭建本地blog环境&lt;/h2&gt;
+&lt;p&gt;1、首先用virtualenv创建一个env  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;mkdir&lt;span class="w"&gt; &lt;/span&gt;blog
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;blog
+&lt;span class="w"&gt;    &lt;/span&gt;virtualenv&lt;span class="w"&gt; &lt;/span&gt;env
+&lt;span class="w"&gt;    &lt;/span&gt;env&lt;span class="se"&gt;\S&lt;/span&gt;cripts&lt;span class="se"&gt;\a&lt;/span&gt;ctivate.bat&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;#激活环境(windows)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;2、创建pelican目录结构  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;pelican-quickstart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;根据提示进行设置&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+&amp;gt; Where do you want to create your new web site? [.]&lt;br&gt;
+&amp;gt; What will be the title of this web site? 田冲憨娃&lt;br&gt;
+&amp;gt; Who will be the author of this web site? unclevicky&lt;br&gt;
+&amp;gt; What will be the default language of this web site? [en] zh&lt;br&gt;
+&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com (Y/n)&lt;br&gt;
+&amp;gt; What is your URL prefix? (see above example; no trailing slash)
+unclevicky.com&lt;br&gt;
+&amp;gt; Do you want to enable article pagination? (Y/n)y&lt;br&gt;
+&amp;gt; How many articles per page do you want? [10]&lt;br&gt;
+&amp;gt; What is your time zone? [Asia/Shanghai]&lt;br&gt;
+&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and
+publishing? (Y/n)y&lt;br&gt;
+&amp;gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme
+and site development? (Y/n)y&lt;br&gt;
+&amp;gt; Do you want to upload your website using FTP? (y/N) n&lt;br&gt;
+&amp;gt; Do you want to upload your website using SSH? (y/N) n&lt;br&gt;
+&amp;gt; Do you want to upload your website using Dropbox? (y/N) n&lt;br&gt;
+&amp;gt; Do you want to upload your website using S3? (y/N) n&lt;br&gt;
+&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N)
+n&lt;br&gt;
+&amp;gt; Do you want to upload your website using GitHub Pages? (y/N)n&lt;br&gt;
+&amp;gt;Done. Your new project is available at D:\coding\git\blog&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;文件结构如下：&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;blog/  
+├── content \# 写的文章放这里  
+├── output \# 生成的输出文件（发布的内容）  
+├── develop_server.sh  
+├── Makefile \# 方便管理博客的Makefile  
+├── pelicanconf.py \# 主配置文件  
+└── publishconf.py 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;第三步：编写blog并本地测试&lt;/h2&gt;
+&lt;p&gt;1.在blog/content目录下建立一个markdown文件（例如test.md),内容如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    Title: 写在前面
+    Date: 2020-04-03 20:37
+    Modified: 2020-04-03 20:37
+    Category: 个人,生活
+    Tags: 随笔
+    Slug: buildblog-1
+    Author: 田冲憨娃
+
+    ### 前言
+    从小时候开始就喜欢记日记，前前后后写了20多本，一直延续到大一，后来在QQ空间里写，再后来在csdn、网易博客上写，但因时间原因终究没有坚持下来。多年的习惯，不管是看到什么、学到什么，如果不写下来就仿佛经历过一样。这么多年过去了，忽然发现，这些年什么也没有积累下。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;2.本地测试&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# 在blog目录下执行&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;pelican&lt;span class="w"&gt; &lt;/span&gt;content&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# 根据content中的内容，生成静态网站到output目下&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# 在output目录下执行&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;pelican.server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;以上两个命令执行完，没有报错的话就用浏览器打开：127.0.0.1:8000，效果如下:  &lt;/p&gt;
+&lt;p&gt;&lt;img src="https://unclevicky.github.io/theme/images/pic/foremost/1.png"
+title="测试截图" style="width:100.0%" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;输入：ctrl + c 停止服务&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;h2&gt;第四步：上传至gitbu并网络访问&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;output
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;init
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;.
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;第一篇博客&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;remote&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;origin&lt;span class="w"&gt; &lt;/span&gt;https://github.com/yourname/yourname.github.io.git
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;#换成你自己的Github账号和库名称,例如我的 https://github.com/unclevicky/unclevicky.github.io.git&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;push&lt;span class="w"&gt; &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;origin&lt;span class="w"&gt; &lt;/span&gt;master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最后访问：https://&lt;strong&gt;&lt;em&gt;yourname&lt;/em&gt;&lt;/strong&gt;.github.io/&lt;br&gt;
+&lt;em&gt;例如我的就是：https://unclevicky.github.io/&lt;/em&gt;  &lt;/p&gt;
+&lt;h2&gt;附：更换电脑如何操作&lt;/h2&gt;
+&lt;p&gt;1、执行上述第一步&lt;br&gt;
+2、执行上述第二步&lt;br&gt;
+3、先把gitbug服务器上的代码pull到output里  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;#output目录&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/unclevicky/unclevicky.github.io.git&lt;span class="w"&gt; &lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;4、在content目录编写新的md，之前的md也可以copy过来&lt;br&gt;
+5、生成博客文章文件，并上传到gitbub上  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# 在blog目录下执行&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;pelican&lt;span class="w"&gt; &lt;/span&gt;content&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# 根据content中的内容，生成静态网站到output目下&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;# 在output目录下执行&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;stash&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# 将修改存⾄缓存区（开关机不会丢失）&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;stash&lt;span class="w"&gt; &lt;/span&gt;pop&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="c1"&gt;#需要提交前恢复暂存区内容&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# 添加文件，已经添加的不会重复添加&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;今日的博客&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;push&lt;span class="w"&gt; &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;origin&lt;span class="w"&gt; &lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# 提交&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="技术,教程,pelican,python,github page"/><category term="教程"/></entry></feed>
