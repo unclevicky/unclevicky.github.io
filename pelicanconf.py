@@ -6,7 +6,7 @@ PATH = "content"
 
 TIMEZONE = 'Asia/Shanghai'
 
-DEFAULT_LANG = 'Chinese (Simplified)'
+DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -27,7 +27,7 @@ LINKS = (
 
 # Social widget
 SOCIAL = (
-    ("CSDN", "https://blog.csdn.net/MissYourKiss/")
+    ("CSDN", "https://blog.csdn.net/MissYourKiss/"),
     #("You can add links in your config file", "#"),
     #("Another social link", "#"),
 )
