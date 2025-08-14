@@ -53,13 +53,13 @@ EXTRA_PATH_METADATA = {
 
 # For themes
 THEME = 'themes/Flex'
+## Show the main menu
+MAIN_MENU = True
 ## This is the new setting to add the navigation menu
 MENUITEMS = (
-    ('Home', '/'),
     ('Archives', '/archives.html'),
     ('Categories', '/categories.html'),
     ('Tags', '/tags.html'),
-    ('Atom', '/feeds/all.atom.xml'),
 )
 ## Tell Pelican to generate page for archives, categories and tags
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'tags']
