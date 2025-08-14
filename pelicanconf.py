@@ -45,3 +45,11 @@ PAGE_SAVE_AS = '{slug}/index.html'
 
 # For static assets
 STATIC_PATHS = ['images', 'pdfs', 'extra']
+
+# Tell Pelican to move the CNAME file to the root of the output folder.
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+}
+
+# For themes
+THEME = 'themes/Flex'
