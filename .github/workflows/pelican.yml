@@ -6,7 +6,7 @@ on:
       - main  # or master if that's your default branch
 
 permissions:
-  contents: write   # REQUIRED for GITHUB_TOKEN to push
+  contents: write
 
 jobs:
   build-deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # allow full history for ghp-import
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,6 +34,4 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           ghp-import output -b gh-pages
-          git push -f origin gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push -f https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
