@@ -117,8 +117,7 @@ blog/
 
     以上两个命令执行完，没有报错的话就用浏览器打开：127.0.0.1:8000，效果如下:  
 
-<img src="https://unclevicky.github.io/theme/images/pic/foremost/1.png"
-title="测试截图" style="width:100.0%" />
+![本地测试截图](/images/tutorial/local_test.jpg)
 
   
 ***输入：ctrl + c 停止服务***  
