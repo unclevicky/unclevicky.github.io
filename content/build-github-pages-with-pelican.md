@@ -1,6 +1,6 @@
 Title: 使用pelican在GitHub上搭建博客（一）
-Date: 2020-04-03 21:37
-Modified: 2020-04-03 21:37
+Date: 2020-04-03
+Modified: 2020-04-03
 Category: 技术,教程,pelican,python,github page
 Tags: 教程
 Slug: pelican-setup

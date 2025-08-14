@@ -1,6 +1,6 @@
 Title: 写在前面
-Date: 2020-04-03 20:37
-Modified: 2020-04-03 20:37
+Date: 2020-04-03
+Modified: 2020-04-03
 Category: 个人,生活
 Tags: 随笔
 Slug: foremost
