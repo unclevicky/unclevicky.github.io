@@ -1,6 +1,6 @@
 AUTHOR = 'unclevicky'
 SITENAME = '田冲憨娃'
-SITEURL = ""
+SITEURL = "https://xiongyiduoduo.top"
 
 PATH = "content"
 
@@ -9,8 +9,8 @@ TIMEZONE = 'Asia/Shanghai'
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
@@ -53,3 +53,13 @@ EXTRA_PATH_METADATA = {
 
 # For themes
 THEME = 'themes/Flex'
+## This is the new setting to add the navigation menu
+MENUITEMS = (
+    ('Home', '/'),
+    ('Archives', '/archives.html'),
+    ('Categories', '/categories.html'),
+    ('Tags', '/tags.html'),
+    ('Atom', '/feeds/all.atom.xml'),
+)
+## Tell Pelican to generate page for archives, categories and tags
+DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'tags']
