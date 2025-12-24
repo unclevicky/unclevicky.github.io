@@ -82,10 +82,10 @@
 
 
           <li>
-            <a target="_self" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkxMTIzMzk0Mg==&action=getalbum&album_id=3937704618716561416#wechat_redirect" >点我进入：从0开始学AI</a>
+            <a target="_self" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkxMTIzMzk0Mg==&action=getalbum&album_id=3937704618716561416#wechat_redirect" >宝藏推荐：从0开始学AI</a>
           </li>
           <li>
-            <a target="_self" href="https://xiongyiduoduo.top/rabbitBear/" >点我进入：Rabbit & Bear</a>
+            <a target="_self" href="https://xiongyiduoduo.top/rabbitBear/" >宝藏推荐：Rabbit & Bear</a>
           </li>
       </ul>
     </nav>
@@ -191,8 +191,28 @@
 </tbody>
 </table>
 <h3>可视化理解（用pelican-photos插件展示分支逻辑）</h3>
-<div gallery="{photo}branch-deploy"></div>
-
+<p><div class="gallery">
+            <figure>
+                <a href="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flow.jpg">
+                    <img src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flowt.jpg" >
+                </a>
+            </figure>
+            <figure>
+                <a href="https://unclevicky.github.io/photos/branch-deploy/branch-intro.jpg">
+                    <img src="https://unclevicky.github.io/photos/branch-deploy/branch-introt.jpg" >
+                </a>
+            </figure>
+            <figure>
+                <a href="https://unclevicky.github.io/photos/branch-deploy/gh-pages-branch-files.jpg">
+                    <img src="https://unclevicky.github.io/photos/branch-deploy/gh-pages-branch-filest.jpg" >
+                </a>
+            </figure>
+            <figure>
+                <a href="https://unclevicky.github.io/photos/branch-deploy/main-branch-files.jpg">
+                    <img src="https://unclevicky.github.io/photos/branch-deploy/main-branch-filest.jpg" >
+                </a>
+            </figure>
+</div></p>
 <h2>二、关键文件解析：pelican.yml是自动化部署的「幕后推手」</h2>
 <p>在main分支的<code>.github/workflow/</code>目录下的<code>pelican.yml</code>文件，是实现「提交源文件→自动生成→自动发布」的核心，本质是GitHub Actions的工作流配置文件。</p>
 <h3>1. GitHub Actions是什么？</h3>
@@ -227,7 +247,7 @@
 </code></pre></div>
 
 <h3>3. 自动化流程拆解（一张图看懂）</h3>
-<p><img alt="main分支的源文件结构" src="{photo}/branch-deploy/auto-deploy-flow.png">
+<p><img alt="main分支的源文件结构" src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flowa.jpg">
 1. 你在本地main分支写好文章，执行<code>git push origin main</code>，将源文件推送到GitHub的main分支；
 2. GitHub检测到main分支有新推送，触发pelican.yml定义的工作流；
 3. 工作流在Ubuntu环境中自动安装Python、Pelican及依赖；
