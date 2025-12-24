@@ -52,7 +52,7 @@ output/
 | master   | 历史部署分支（兼容旧版） | 无需维护，可清理 | 早期手动上传的output文件（已过时） |
 
 ### 可视化理解（用pelican-photos插件展示分支逻辑）
-<div gallery="{photo}branch-deploy"></div>
+gallery::{photo}branch-deploy
 
 ## 二、关键文件解析：pelican.yml是自动化部署的「幕后推手」
 在main分支的`.github/workflow/`目录下的`pelican.yml`文件，是实现「提交源文件→自动生成→自动发布」的核心，本质是GitHub Actions的工作流配置文件。
@@ -91,7 +91,7 @@ jobs:
 ```
 
 ### 3. 自动化流程拆解（一张图看懂）
-![main分支的源文件结构]({photo}/branch-deploy/auto-deploy-flow.png)
+![main分支的源文件结构]({photo}/branch-deploy/auto-deploy-flow.jpg)
 1. 你在本地main分支写好文章，执行`git push origin main`，将源文件推送到GitHub的main分支；
 2. GitHub检测到main分支有新推送，触发pelican.yml定义的工作流；
 3. 工作流在Ubuntu环境中自动安装Python、Pelican及依赖；

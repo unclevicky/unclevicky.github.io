@@ -17,8 +17,8 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
-    ("点我进入：从0开始学AI", "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkxMTIzMzk0Mg==&action=getalbum&album_id=3937704618716561416#wechat_redirect"),
-    ("点我进入：Rabbit & Bear", "https://xiongyiduoduo.top/rabbitBear/"),
+    ("宝藏推荐：从0开始学AI", "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkxMTIzMzk0Mg==&action=getalbum&album_id=3937704618716561416#wechat_redirect"),
+    ("宝藏推荐：Rabbit & Bear", "https://xiongyiduoduo.top/rabbitBear/"),
     #("Pelican", "https://getpelican.com/"),
     #("Python.org", "https://www.python.org/"),
     #("Jinja2", "https://palletsprojects.com/p/jinja/"),
@@ -68,13 +68,24 @@ DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'tags']
 PLUGINS = ['photos']
 ## photos
 ### 图片存储目录（在content下创建）
-PHOTO_LIBRARY = './content/photos'
+PHOTO_LIBRARY = 'content/photos'
 ### 缩略图尺寸（宽x高，单位px，按比例缩放）
 PHOTO_THUMB = (250, 180, 60)
 ### 大图最大尺寸（避免图片过大影响加载）
 PHOTO_GALLERY = (1200, 900, 85)           
-### 是否在文章中显示图片标题（默认False）
-PHOTOS_SHOW_TITLE = True
 ### 可选：图片加水印（按需开启）
 PHOTO_WATERMARK = False
 PHOTO_WATERMARK_TEXT = "田冲憨娃"
+### 确保使用正确的URL路径
+PHOTO_URL = '/photos/'
+PHOTO_LIBRARY_URL = '/photos/'
+### 启用内联图片和画廊
+PHOTO_INLINE_ENABLED = True
+PHOTO_INLINE_GALLERY_ENABLED = True
+### 移除复杂的PHOTO_PROFILES配置，使用默认配置
+# 文件名后缀问题将通过其他方式解决
+
+# 确保在所有平台上都使用正斜杠
+PHOTO_LIBRARY = PHOTO_LIBRARY.replace('\\', '/')
+PHOTO_URL = PHOTO_URL.replace('\\', '/')
+PHOTO_LIBRARY_URL = PHOTO_LIBRARY_URL.replace('\\', '/')

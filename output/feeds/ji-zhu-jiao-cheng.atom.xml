@@ -67,21 +67,28 @@ python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;
 打开&lt;code&gt;pelicanconf.py&lt;/code&gt;文件，添加插件配置和图片相关参数（根据需求调整）：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# pelicanconf.py 中添加以下配置&lt;/span&gt;
-&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;pelican_photos&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# 启用pelican-photos插件&lt;/span&gt;
+&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;photos&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# 启用pelican-photos插件（注意：实际注册名为&amp;#39;photos&amp;#39;）&lt;/span&gt;
 
 &lt;span class="c1"&gt;# 图片存储目录（在content下创建）&lt;/span&gt;
-&lt;span class="n"&gt;PHOTOS_DIR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;photos&amp;#39;&lt;/span&gt;
-&lt;span class="c1"&gt;# 缩略图尺寸（宽x高，单位px，按比例缩放）&lt;/span&gt;
-&lt;span class="n"&gt;PHOTOS_THUMBNAIL_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;250&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;180&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c1"&gt;# 大图最大尺寸（避免图片过大影响加载）&lt;/span&gt;
-&lt;span class="n"&gt;PHOTOS_LARGE_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;900&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c1"&gt;# 是否在文章中显示图片标题（默认False）&lt;/span&gt;
-&lt;span class="n"&gt;PHOTOS_SHOW_TITLE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_LIBRARY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;content/photos&amp;#39;&lt;/span&gt;
+&lt;span class="c1"&gt;# 缩略图尺寸（宽x高，单位px，按比例缩放，质量）&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_THUMB&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;250&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;180&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# 大图最大尺寸（避免图片过大影响加载，质量）&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_GALLERY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;900&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;85&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# 图片URL路径&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/photos/&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_LIBRARY_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/photos/&amp;#39;&lt;/span&gt;
+&lt;span class="c1"&gt;# 启用内联图片和画廊&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_INLINE_ENABLED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_INLINE_GALLERY_ENABLED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="c1"&gt;# 图片加水印（按需开启）&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_WATERMARK&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;span class="n"&gt;PHOTO_WATERMARK_TEXT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;你的水印文字&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;创建图片目录并上传图片&lt;/strong&gt;
-在&lt;code&gt;content&lt;/code&gt;目录下新建&lt;code&gt;photos&lt;/code&gt;文件夹，将需要展示的图片（比如&lt;code&gt;branch-intro.png&lt;/code&gt;、&lt;code&gt;main-branch-files.png&lt;/code&gt;、&lt;code&gt;auto-deploy-flow.png&lt;/code&gt;）复制到该目录（也可以根据不同需要新建子目录，例如根据博客名称新建"branch-deploy"）：&lt;/li&gt;
+在&lt;code&gt;content&lt;/code&gt;目录下新建&lt;code&gt;photos&lt;/code&gt;文件夹，将需要展示的图片（比如&lt;code&gt;branch-intro.jpg&lt;/code&gt;、&lt;code&gt;main-branch-files.jpg&lt;/code&gt;、&lt;code&gt;auto-deploy-flow.jpg&lt;/code&gt;）复制到该目录（也可以根据不同需要新建子目录，例如根据博客名称新建"branch-deploy"）：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 进入blog/content目录&lt;/span&gt;
 &lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;blog/content
@@ -90,37 +97,166 @@ mkdir&lt;span class="w"&gt; &lt;/span&gt;photos
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;创建必要的模板文件&lt;/strong&gt;
+pelican-photos插件需要在主题模板目录下创建&lt;code&gt;inline_gallery.html&lt;/code&gt;模板文件，用于渲染画廊：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 在主题模板目录下创建inline_gallery.html文件&lt;/span&gt;
+mkdir&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;themes/Flex/templates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;在&lt;code&gt;themes/Flex/templates/inline_gallery.html&lt;/code&gt;中添加以下内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;gallery&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    {% for gallery in galleries %}
+        {% for img in gallery.images %}
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ SITEURL }}/{{ img.image.dst }}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ SITEURL }}/{{ img.thumb.dst }}&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;alt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ img.caption }}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                {% if img.caption %}
+                    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;figcaption&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;{{ img.caption }}&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;figcaption&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                {% endif %}
+            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        {% endfor %}
+    {% endfor %}
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;创建图片路径修复脚本&lt;/strong&gt;
+由于插件生成的图片路径可能存在问题（如Windows反斜杠、缺少扩展名等），需要创建一个修复脚本：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在博客根目录创建&lt;code&gt;fix_image_paths.py&lt;/code&gt;文件，添加以下内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;Fix image paths in generated HTML files by replacing Windows backslashes with forward slashes.&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Configuration&lt;/span&gt;
+&lt;span class="n"&gt;OUTPUT_DIR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;output&amp;#39;&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fix_html_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Fix image paths in a single HTML file.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# Replace backslashes in image URLs with forward slashes&lt;/span&gt;
+        &lt;span class="c1"&gt;# This targets URLs like: https://example.com/photos\image.jpg&lt;/span&gt;
+        &lt;span class="n"&gt;fixed_content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(https?://[^&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;&lt;span class="s1"&gt;]+)&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;([^&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;\\&lt;/span&gt;&lt;span class="s1"&gt;]+)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;\1/\2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# Add .jpg extension to image URLs that don&amp;#39;t have it&lt;/span&gt;
+        &lt;span class="c1"&gt;# This targets URLs like: https://example.com/photos/image&lt;/span&gt;
+        &lt;span class="n"&gt;fixed_content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(https?://[^&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;&lt;span class="s1"&gt;]+/photos/[^&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;\\&lt;/span&gt;&lt;span class="s1"&gt;/]+?)([^.&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;&lt;span class="s1"&gt;]+)&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;\1\2.jpg&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fixed_content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# Fix image paths with thumb suffixes&lt;/span&gt;
+        &lt;span class="c1"&gt;# This targets URLs like: https://example.com/photos/imagea and https://example.com/photos/imagethumb&lt;/span&gt;
+        &lt;span class="n"&gt;fixed_content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(https?://[^&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;&lt;span class="s1"&gt;]+/photos/[^&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;\\&lt;/span&gt;&lt;span class="s1"&gt;/]+?)(a|t)\b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;\1.\2.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fixed_content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# Remove unwanted suffixes from image filenames in URLs&lt;/span&gt;
+        &lt;span class="c1"&gt;# This targets URLs like: https://example.com/photos/imagea.jpg (remove &amp;#39;a&amp;#39; suffix)&lt;/span&gt;
+        &lt;span class="c1"&gt;# and https://example.com/photos/imagethumb.jpg (remove &amp;#39;t&amp;#39; suffix)&lt;/span&gt;
+        &lt;span class="n"&gt;fixed_content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(https?://[^&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;&lt;span class="s1"&gt;]+/photos/[^&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;\\&lt;/span&gt;&lt;span class="s1"&gt;/]+?)(a|t)\.jpg\b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;\1.jpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fixed_content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# Fix None captions&lt;/span&gt;
+        &lt;span class="n"&gt;fixed_content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fixed_content&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;alt=&amp;quot;None&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;fixed_content&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fixed_content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Fixed: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Error processing &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fix_all_html_files&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Fix image paths in all HTML files in the output directory.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dirs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;walk&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUT_DIR&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;endswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+                &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="n"&gt;fix_html_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Fixing image paths in HTML files...&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;fix_all_html_files&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Done!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;在markdown文章中插入图片&lt;/strong&gt;
 使用插件专用语法插入图片，支持单张或多张图片批量展示：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gh"&gt;# 示例1：单张图片展示&lt;/span&gt;
-{% photo &amp;quot;photos/branch-deploy/auto-deploy-flow.png&amp;quot; &amp;quot;自动发布流程&amp;quot; %}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gh"&gt;# 示例1：单张图片展示（直接显示大图）&lt;/span&gt;
+&amp;lt;img src=&amp;quot;{photo}branch-deploy/branch-intro.jpg&amp;quot; alt=&amp;quot;三个分支的功能分工示意图&amp;quot;&amp;gt;
 
-&lt;span class="gh"&gt;# 示例2：多张图片批量展示（自动生成缩略图网格）&lt;/span&gt;
-{% gallery %}
-photos/branch-deploy/branch-intro.png &amp;quot;三个分支的功能分工示意图&amp;quot;
-photos/branch-deploy/main-branch-files.png &amp;quot;main分支的源文件结构&amp;quot;
-photos/branch-deploy/auto-deploy-flow.png &amp;quot;自动发布流程&amp;quot;
-{% endgallery %}
+&lt;span class="gh"&gt;# 示例2：单张图片展示（带lightbox效果）&lt;/span&gt;
+&amp;lt;img src=&amp;quot;{lightbox}branch-deploy/main-branch-files.jpg&amp;quot; alt=&amp;quot;main分支的源文件结构&amp;quot;&amp;gt;
+
+&lt;span class="gh"&gt;# 示例3：多张图片批量展示（自动生成缩略图网格）&lt;/span&gt;
+&lt;div class="gallery"&gt;
+            &lt;figure&gt;
+                &lt;a href="https://xiongyiduoduo.top/photos\branch-deploy\auto-deploy-flow"&gt;
+                    &lt;img src="https://xiongyiduoduo.top/photos\branch-deploy\auto-deploy-flowt" alt="None"&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+            &lt;figure&gt;
+                &lt;a href="https://xiongyiduoduo.top/photos\branch-deploy\branch-intro"&gt;
+                    &lt;img src="https://xiongyiduoduo.top/photos\branch-deploy\branch-introt" alt="None"&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+            &lt;figure&gt;
+                &lt;a href="https://xiongyiduoduo.top/photos\branch-deploy\gh-pages-branch-files"&gt;
+                    &lt;img src="https://xiongyiduoduo.top/photos\branch-deploy\gh-pages-branch-filest" alt="None"&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+            &lt;figure&gt;
+                &lt;a href="https://xiongyiduoduo.top/photos\branch-deploy\main-branch-files"&gt;
+                    &lt;img src="https://xiongyiduoduo.top/photos\branch-deploy\main-branch-filest" alt="None"&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;生成并修复图片路径&lt;/strong&gt;
+执行生成命令并修复图片路径：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 生成静态文件&lt;/span&gt;
+pelican&lt;span class="w"&gt; &lt;/span&gt;content
+&lt;span class="c1"&gt;# 修复图片路径&lt;/span&gt;
+python&lt;span class="w"&gt; &lt;/span&gt;fix_image_paths.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;本地测试效果&lt;/strong&gt;
-执行生成命令并启动本地服务：&lt;/li&gt;
+启动本地服务查看效果：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pelican&lt;span class="w"&gt; &lt;/span&gt;content&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# 生成静态文件（插件会自动生成缩略图）&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;output
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;output
 python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;pelican.server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;实际效果展示&lt;/h3&gt;
-&lt;p&gt;打开&lt;code&gt;127.0.0.1:8000&lt;/code&gt;查看效果，多张图片会以缩略图网格形式排列（如下左图），点击任意缩略图会弹出大图查看（如下右图），图片标题会显示在下方：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="pelican-photos插件缩略图效果" src="photos/thumbnail-effect.jpg" title="缩略图网格展示"&gt;
-&lt;img alt="pelican-photos插件大图效果" src="photos/large-effect.jpg" title="点击后大图展示"&gt;&lt;/p&gt;
+&lt;p&gt;打开&lt;code&gt;127.0.0.1:8000&lt;/code&gt;查看效果，多张图片会以缩略图网格形式排列，点击任意缩略图会弹出大图查看，图片标题会显示在下方：&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://xiongyiduoduo.top/photos\branch-deploy/branch-introa.jpg" alt="三个分支的功能分工示意图"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://xiongyiduoduo.top/photos\branch-deploy/main-branch-files.jpg" data-lightbox="branch-deploy"&gt;&lt;img src="https://xiongyiduoduo.top/photos\branch-deploy/main-branch-filest.jpg" alt="main分支的源文件结构"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;注意事项&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;插件名称注意事项&lt;/strong&gt;：pelican-photos插件在pelican中实际注册名为'photos'，而非'pelican_photos'，配置时需注意&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模板文件必须创建&lt;/strong&gt;：必须在主题模板目录下创建&lt;code&gt;inline_gallery.html&lt;/code&gt;文件，否则会导致生成错误&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成后需修复路径&lt;/strong&gt;：由于插件生成的图片路径可能存在问题，每次生成后需运行&lt;code&gt;python fix_image_paths.py&lt;/code&gt;修复&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语法变化&lt;/strong&gt;：pelican-photos 1.6.2版本使用HTML标签形式的引用语法，而非旧版的Jinja2标签&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目录结构&lt;/strong&gt;：图片需放在&lt;code&gt;content/photos&lt;/code&gt;目录下，插件会自动处理&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3&gt;优缺点&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;✅ 优点：支持缩略图、大图查看，多图排版美观，配置灵活&lt;/li&gt;
-&lt;li&gt;❌ 缺点：需要安装插件，配置稍复杂，图片仍存储在博客仓库中&lt;/li&gt;
+&lt;li&gt;❌ 缺点：需要安装插件，配置稍复杂，生成后需手动修复路径，图片仍存储在博客仓库中&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;三、使用github图床（图片独立存储，多设备同步）&lt;/h2&gt;
 &lt;p&gt;图床就是专门存储图片的仓库，将图片上传到github图床后，通过公共链接引用，适合图片数量多、需要多设备同步编辑博客的场景（避免博客仓库体积过大）。&lt;/p&gt;
@@ -278,8 +414,28 @@ Published: 周一 20 五月 2024 Updated: 周一 20 五月 2024 By 田冲憨娃 
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3&gt;可视化理解（用pelican-photos插件展示分支逻辑）&lt;/h3&gt;
-&lt;div gallery="{photo}branch-deploy"&gt;&lt;/div&gt;
-
+&lt;p&gt;&lt;div class="gallery"&gt;
+            &lt;figure&gt;
+                &lt;a href="https://xiongyiduoduo.top/photos\branch-deploy\auto-deploy-flow"&gt;
+                    &lt;img src="https://xiongyiduoduo.top/photos\branch-deploy\auto-deploy-flowt" alt="None"&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+            &lt;figure&gt;
+                &lt;a href="https://xiongyiduoduo.top/photos\branch-deploy\branch-intro"&gt;
+                    &lt;img src="https://xiongyiduoduo.top/photos\branch-deploy\branch-introt" alt="None"&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+            &lt;figure&gt;
+                &lt;a href="https://xiongyiduoduo.top/photos\branch-deploy\gh-pages-branch-files"&gt;
+                    &lt;img src="https://xiongyiduoduo.top/photos\branch-deploy\gh-pages-branch-filest" alt="None"&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+            &lt;figure&gt;
+                &lt;a href="https://xiongyiduoduo.top/photos\branch-deploy\main-branch-files"&gt;
+                    &lt;img src="https://xiongyiduoduo.top/photos\branch-deploy\main-branch-filest" alt="None"&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2&gt;二、关键文件解析：pelican.yml是自动化部署的「幕后推手」&lt;/h2&gt;
 &lt;p&gt;在main分支的&lt;code&gt;.github/workflow/&lt;/code&gt;目录下的&lt;code&gt;pelican.yml&lt;/code&gt;文件，是实现「提交源文件→自动生成→自动发布」的核心，本质是GitHub Actions的工作流配置文件。&lt;/p&gt;
 &lt;h3&gt;1. GitHub Actions是什么？&lt;/h3&gt;

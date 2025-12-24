@@ -70,20 +70,27 @@ pip install pelican-photos
 打开`pelicanconf.py`文件，添加插件配置和图片相关参数（根据需求调整）：
 ```python
 # pelicanconf.py 中添加以下配置
-PLUGINS = ['pelican_photos']  # 启用pelican-photos插件
+PLUGINS = ['photos']  # 启用pelican-photos插件（注意：实际注册名为'photos'）
 
 # 图片存储目录（在content下创建）
-PHOTOS_DIR = 'photos'
-# 缩略图尺寸（宽x高，单位px，按比例缩放）
-PHOTOS_THUMBNAIL_SIZE = (250, 180)
-# 大图最大尺寸（避免图片过大影响加载）
-PHOTOS_LARGE_SIZE = (1200, 900)
-# 是否在文章中显示图片标题（默认False）
-PHOTOS_SHOW_TITLE = True
+PHOTO_LIBRARY = 'content/photos'
+# 缩略图尺寸（宽x高，单位px，按比例缩放，质量）
+PHOTO_THUMB = (250, 180, 60)
+# 大图最大尺寸（避免图片过大影响加载，质量）
+PHOTO_GALLERY = (1200, 900, 85)
+# 图片URL路径
+PHOTO_URL = '/photos/'
+PHOTO_LIBRARY_URL = '/photos/'
+# 启用内联图片和画廊
+PHOTO_INLINE_ENABLED = True
+PHOTO_INLINE_GALLERY_ENABLED = True
+# 图片加水印（按需开启）
+PHOTO_WATERMARK = False
+PHOTO_WATERMARK_TEXT = "你的水印文字"
 ```
 
 3. **创建图片目录并上传图片**
-在`content`目录下新建`photos`文件夹，将需要展示的图片（比如`branch-intro.png`、`main-branch-files.png`、`auto-deploy-flow.png`）复制到该目录（也可以根据不同需要新建子目录，例如根据博客名称新建"branch-deploy"）：
+在`content`目录下新建`photos`文件夹，将需要展示的图片（比如`branch-intro.jpg`、`main-branch-files.jpg`、`auto-deploy-flow.jpg`）复制到该目录（也可以根据不同需要新建子目录，例如根据博客名称新建"branch-deploy"）：
 ```bash
 # 进入blog/content目录
 cd blog/content
@@ -91,37 +98,145 @@ mkdir photos
 # 复制图片到photos目录（本地操作，无需命令行）
 ```
 
-4. **在markdown文章中插入图片**
-使用插件专用语法插入图片，支持单张或多张图片批量展示：
-```markdown
-# 示例1：单张图片展示
-{% photo "photos/branch-deploy/auto-deploy-flow.png" "自动发布流程" %}
-
-# 示例2：多张图片批量展示（自动生成缩略图网格）
-{% gallery %}
-photos/branch-deploy/branch-intro.png "三个分支的功能分工示意图"
-photos/branch-deploy/main-branch-files.png "main分支的源文件结构"
-photos/branch-deploy/auto-deploy-flow.png "自动发布流程"
-{% endgallery %}
+4. **创建必要的模板文件**
+pelican-photos插件需要在主题模板目录下创建`inline_gallery.html`模板文件，用于渲染画廊：
+```bash
+# 在主题模板目录下创建inline_gallery.html文件
+mkdir -p themes/Flex/templates
 ```
 
-5. **本地测试效果**
-执行生成命令并启动本地服务：
+在`themes/Flex/templates/inline_gallery.html`中添加以下内容：
+```html
+<div class="gallery">
+    {% for gallery in galleries %}
+        {% for img in gallery.images %}
+            <figure>
+                <a href="{{ SITEURL }}/{{ img.image.dst }}">
+                    <img src="{{ SITEURL }}/{{ img.thumb.dst }}" alt="{{ img.caption }}">
+                </a>
+                {% if img.caption %}
+                    <figcaption>{{ img.caption }}</figcaption>
+                {% endif %}
+            </figure>
+        {% endfor %}
+    {% endfor %}
+</div>
+```
+
+5. **创建图片路径修复脚本**
+由于插件生成的图片路径可能存在问题（如Windows反斜杠、缺少扩展名等），需要创建一个修复脚本：
+
+在博客根目录创建`fix_image_paths.py`文件，添加以下内容：
+```python
+#!/usr/bin/env python3
+"""
+Fix image paths in generated HTML files by replacing Windows backslashes with forward slashes.
+"""
+
+import os
+import re
+
+# Configuration
+OUTPUT_DIR = 'output'
+
+
+def fix_html_file(file_path):
+    """Fix image paths in a single HTML file."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Replace backslashes in image URLs with forward slashes
+        # This targets URLs like: https://example.com/photos\image.jpg
+        fixed_content = re.sub(r'(https?://[^"\']+)\\([^"\'\\]+)', r'\1/\2', content)
+        
+        # Add .jpg extension to image URLs that don't have it
+        # This targets URLs like: https://example.com/photos/image
+        fixed_content = re.sub(r'(https?://[^"\']+/photos/[^"\'\\/]+?)([^."\']+)"', r'\1\2.jpg"', fixed_content)
+        
+        # Fix image paths with thumb suffixes
+        # This targets URLs like: https://example.com/photos/imagea and https://example.com/photos/imagethumb
+        fixed_content = re.sub(r'(https?://[^"\']+/photos/[^"\'\\/]+?)(a|t)\b', r'\1.\2.jpg', fixed_content)
+        
+        # Remove unwanted suffixes from image filenames in URLs
+        # This targets URLs like: https://example.com/photos/imagea.jpg (remove 'a' suffix)
+        # and https://example.com/photos/imagethumb.jpg (remove 't' suffix)
+        fixed_content = re.sub(r'(https?://[^"\']+/photos/[^"\'\\/]+?)(a|t)\.jpg\b', r'\1.jpg', fixed_content)
+        
+        # Fix None captions
+        fixed_content = fixed_content.replace('alt="None"', '')
+        
+        if fixed_content != content:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(fixed_content)
+            print(f"Fixed: {file_path}")
+        
+    except Exception as e:
+        print(f"Error processing {file_path}: {e}")
+
+
+def fix_all_html_files():
+    """Fix image paths in all HTML files in the output directory."""
+    for root, dirs, files in os.walk(OUTPUT_DIR):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                fix_html_file(file_path)
+
+
+if __name__ == '__main__':
+    print("Fixing image paths in HTML files...")
+    fix_all_html_files()
+    print("Done!")
+```
+
+6. **在markdown文章中插入图片**
+使用插件专用语法插入图片，支持单张或多张图片批量展示：
+
+```markdown
+# 示例1：单张图片展示（直接显示大图）
+<img src="{photo}branch-deploy/branch-intro.jpg" alt="三个分支的功能分工示意图">
+
+# 示例2：单张图片展示（带lightbox效果）
+<img src="{lightbox}branch-deploy/main-branch-files.jpg" alt="main分支的源文件结构">
+
+# 示例3：多张图片批量展示（自动生成缩略图网格）
+gallery::{photo}branch-deploy
+```
+
+7. **生成并修复图片路径**
+执行生成命令并修复图片路径：
 ```bash
-pelican content  # 生成静态文件（插件会自动生成缩略图）
+# 生成静态文件
+pelican content
+# 修复图片路径
+python fix_image_paths.py
+```
+
+8. **本地测试效果**
+启动本地服务查看效果：
+```bash
 cd output
 python -m pelican.server
 ```
 
 ### 实际效果展示
-打开`127.0.0.1:8000`查看效果，多张图片会以缩略图网格形式排列（如下左图），点击任意缩略图会弹出大图查看（如下右图），图片标题会显示在下方：
+打开`127.0.0.1:8000`查看效果，多张图片会以缩略图网格形式排列，点击任意缩略图会弹出大图查看，图片标题会显示在下方：
 
-![pelican-photos插件缩略图效果](photos/thumbnail-effect.jpg "缩略图网格展示")
-![pelican-photos插件大图效果](photos/large-effect.jpg "点击后大图展示")
+<img src="{photo}branch-deploy/branch-intro.jpg" alt="三个分支的功能分工示意图">
+
+<img src="{lightbox}branch-deploy/main-branch-files.jpg" alt="main分支的源文件结构">
+
+### 注意事项
+1. **插件名称注意事项**：pelican-photos插件在pelican中实际注册名为'photos'，而非'pelican_photos'，配置时需注意
+2. **模板文件必须创建**：必须在主题模板目录下创建`inline_gallery.html`文件，否则会导致生成错误
+3. **生成后需修复路径**：由于插件生成的图片路径可能存在问题，每次生成后需运行`python fix_image_paths.py`修复
+4. **语法变化**：pelican-photos 1.6.2版本使用HTML标签形式的引用语法，而非旧版的Jinja2标签
+5. **目录结构**：图片需放在`content/photos`目录下，插件会自动处理
 
 ### 优缺点
 - ✅ 优点：支持缩略图、大图查看，多图排版美观，配置灵活
-- ❌ 缺点：需要安装插件，配置稍复杂，图片仍存储在博客仓库中
+- ❌ 缺点：需要安装插件，配置稍复杂，生成后需手动修复路径，图片仍存储在博客仓库中
 
 ## 三、使用github图床（图片独立存储，多设备同步）
 图床就是专门存储图片的仓库，将图片上传到github图床后，通过公共链接引用，适合图片数量多、需要多设备同步编辑博客的场景（避免博客仓库体积过大）。
