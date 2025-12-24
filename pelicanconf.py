@@ -17,8 +17,8 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
-    ("从0开始学AI", "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkxMTIzMzk0Mg==&action=getalbum&album_id=3937704618716561416#wechat_redirect"),
-    ("Rabbit & Bear", "https://xiongyiduoduo.top/rabbitBear/"),
+    ("点我进入：从0开始学AI", "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkxMTIzMzk0Mg==&action=getalbum&album_id=3937704618716561416#wechat_redirect"),
+    ("点我进入：Rabbit & Bear", "https://xiongyiduoduo.top/rabbitBear/"),
     #("Pelican", "https://getpelican.com/"),
     #("Python.org", "https://www.python.org/"),
     #("Jinja2", "https://palletsprojects.com/p/jinja/"),
@@ -44,7 +44,7 @@ PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
 # For static assets
-STATIC_PATHS = ['images', 'pdfs', 'extra']
+STATIC_PATHS = ['images', 'photos', 'pdfs', 'extra']
 
 # Tell Pelican to move the CNAME file to the root of the output folder.
 EXTRA_PATH_METADATA = {
@@ -63,3 +63,18 @@ MENUITEMS = (
 )
 ## Tell Pelican to generate page for archives, categories and tags
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives', 'tags']
+
+# For Plugins
+PLUGINS = ['photos']
+## photos
+### 图片存储目录（在content下创建）
+PHOTO_LIBRARY = './content/photos'
+### 缩略图尺寸（宽x高，单位px，按比例缩放）
+PHOTO_THUMB = (250, 180, 60)
+### 大图最大尺寸（避免图片过大影响加载）
+PHOTO_GALLERY = (1200, 900, 85)           
+### 是否在文章中显示图片标题（默认False）
+PHOTOS_SHOW_TITLE = True
+### 可选：图片加水印（按需开启）
+PHOTO_WATERMARK = False
+PHOTO_WATERMARK_TEXT = "田冲憨娃"
