@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unclevicky.github.io/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://unclevicky.github.io/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://unclevicky.github.io/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://unclevicky.github.io/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://unclevicky.github.io/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="https://unclevicky.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="田冲憨娃 Atom">
+
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="田冲憨娃" />
+<meta name="description" content="前言 上一篇博客分享了用Pelican+GitHub.io搭建个人博客的基础流程，成功部署了第一篇文章到unclevicky.github.io。但随着操作深入，不少朋友（包括我自己）会发现仓库里 …" />
+<meta name="keywords" content="pelican, github.io, 分支管理, 自动化部署, 版本控制">
+
+
+  <meta property="og:site_name" content="田冲憨娃"/>
+  <meta property="og:title" content="Pelican+GitHub.io博客进阶：分支管理、自动化部署与版本控制全解析"/>
+  <meta property="og:description" content="前言 上一篇博客分享了用Pelican+GitHub.io搭建个人博客的基础流程，成功部署了第一篇文章到unclevicky.github.io。但随着操作深入，不少朋友（包括我自己）会发现仓库里 …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://unclevicky.github.io/2025/12/pelican-github-branch-deploy/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-12-24 14:21:00+08:00"/>
+  <meta property="article:modified_time" content="2025-12-24 14:21:00+08:00"/>
+  <meta property="article:author" content="https://unclevicky.github.io/author/tian-chong-han-wa.html">
+  <meta property="article:section" content="技术,教程"/>
+  <meta property="article:tag" content="pelican"/>
+  <meta property="article:tag" content="github.io"/>
+  <meta property="article:tag" content="分支管理"/>
+  <meta property="article:tag" content="自动化部署"/>
+  <meta property="article:tag" content="版本控制"/>
+  <meta property="og:image" content="">
+
+  <title>田冲憨娃 &ndash; Pelican+GitHub.io博客进阶：分支管理、自动化部署与版本控制全解析</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://unclevicky.github.io/">
+      <img src="https://unclevicky.github.io/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://unclevicky.github.io/"></a>
+    </h1>
+
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkxMTIzMzk0Mg==&action=getalbum&album_id=3937704618716561416#wechat_redirect" >点我进入：从0开始学AI</a>
+          </li>
+          <li>
+            <a target="_self" href="https://xiongyiduoduo.top/rabbitBear/" >点我进入：Rabbit & Bear</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-CSDN"
+           href="https://blog.csdn.net/MissYourKiss/"
+           target="_blank">
+          <i class="fa-brands fa-CSDN"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://unclevicky.github.io/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="https://unclevicky.github.io/feeds/all.atom.xml">Atom</a>
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="pelican-github-branch-deploy">Pelican+GitHub.io博客进阶：分支管理、自动化部署与版本控制全解析</h1>
+    <p>
+      Posted on Wed 24 December 2025 in <a href="https://unclevicky.github.io/category/ji-zhu-jiao-cheng.html">技术,教程</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h3>前言</h3>
+<p>上一篇博客分享了用Pelican+GitHub.io搭建个人博客的基础流程，成功部署了第一篇文章到unclevicky.github.io。但随着操作深入，不少朋友（包括我自己）会发现仓库里多了几个分支——main、gh-pages、master，还在main分支下看到了<code>.github/workflow/pelican.yml</code>文件。</p>
+<p>这些分支分别是干什么的？yml文件是用来实现什么功能的？博客的源文件（写的文章、配置文件）和发布后的静态文件该怎么分开管理？这篇进阶教程就来一一拆解这些疑问，帮大家理清GitHub仓库的结构逻辑，掌握规范的版本管理方法，让后续写博客、维护博客更高效～</p>
+<h2>一、先搞懂：仓库里的三个分支到底各司其职？</h2>
+<p>在unclevicky.github.io仓库中出现的main、gh-pages、master三个分支，并非多余，而是GitHub Pages部署和Pelican工作流的核心组成部分，每个分支都有明确的分工：</p>
+<h3>1. main分支：你的「博客源文件大本营」</h3>
+<p><strong>核心作用</strong>：存储博客的所有源文件，是你日常编辑、维护的主要分支。
+里面包含的内容（也是上一篇教程中搭建的blog目录文件）：</p>
+<div class="highlight"><pre><span></span><code>blog/  
+├── content/ # 你写的所有markdown文章（.md文件）
+├── pelicanconf.py # 博客主配置文件（主题、插件、站点信息等）
+├── publishconf.py # 发布配置文件
+├── Makefile # 自动化脚本（可选）
+├── .github/workflow/pelican.yml # 自动化部署配置文件
+└── 其他：插件目录、静态资源目录（images/photos）等
+</code></pre></div>
+
+<p><strong>操作逻辑</strong>：日常写文章、修改配置、安装插件，都在这个分支下操作，写完后用git提交更新，相当于给源文件做版本备份。</p>
+<h3>2. gh-pages分支：「博客发布的静态文件仓库」</h3>
+<p><strong>核心作用</strong>：存储Pelican生成的静态网站文件，是GitHub Pages实际部署、对外访问的分支。
+里面的内容对应Pelican生成的<code>output</code>目录：</p>
+<div class="highlight"><pre><span></span><code>output/  
+├── index.html # 博客首页
+├── 2020/04/ # 按日期分类的文章页面
+├── static/ # 静态资源（图片、CSS、JS）
+└── 其他HTML页面、站点地图等
+</code></pre></div>
+
+<p><strong>操作逻辑</strong>：这个分支不需要手动修改！所有文件都是通过自动化工具（后面讲的pelican.yml）从main分支的源文件生成的，GitHub Pages会自动读取这个分支的内容，展示成大家访问到的<code>https://unclevicky.github.io</code>。</p>
+<h3>3. master分支：「历史遗留的「退休」分支」</h3>
+<p><strong>核心作用</strong>：早期GitHub Pages的默认部署分支（以前GitHub Pages优先读取master分支的根目录文件），现在大多被gh-pages或main分支替代。
+<strong>现状说明</strong>：如果你的仓库是早期创建的，或者之前手动部署过，可能会保留这个分支。目前它的作用和gh-pages重复，属于「退休状态」，一般不需要再维护。</p>
+<h3>三个分支对比表</h3>
+<table>
+<thead>
+<tr>
+<th>分支名称</th>
+<th>核心用途</th>
+<th>操作方式</th>
+<th>关键文件/目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>main</td>
+<td>存储源文件（编辑、维护）</td>
+<td>日常编辑、git提交更新</td>
+<td>content/、pelicanconf.py、pelican.yml</td>
+</tr>
+<tr>
+<td>gh-pages</td>
+<td>存储发布文件（部署、访问）</td>
+<td>自动化生成，无需手动改</td>
+<td>index.html、static/、按日期分类的文章目录</td>
+</tr>
+<tr>
+<td>master</td>
+<td>历史部署分支（兼容旧版）</td>
+<td>无需维护，可清理</td>
+<td>早期手动上传的output文件（已过时）</td>
+</tr>
+</tbody>
+</table>
+<h3>可视化理解（用pelican-photos插件展示分支逻辑）</h3>
+<div gallery="{photo}branch-deploy"></div>
+
+<h2>二、关键文件解析：pelican.yml是自动化部署的「幕后推手」</h2>
+<p>在main分支的<code>.github/workflow/</code>目录下的<code>pelican.yml</code>文件，是实现「提交源文件→自动生成→自动发布」的核心，本质是GitHub Actions的工作流配置文件。</p>
+<h3>1. GitHub Actions是什么？</h3>
+<p>简单说，GitHub Actions是GitHub内置的自动化工具，可以让你在仓库发生特定事件（比如提交代码、创建分支）时，自动执行一系列命令（比如安装依赖、运行脚本、部署文件）。而pelican.yml就是告诉GitHub Actions：当我向main分支提交代码时，要做哪些步骤来部署博客。</p>
+<h3>2. pelican.yml的核心配置（以常见模板为例）</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pelican Build and Deploy</span><span class="w"> </span><span class="c1"># 工作流名称</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># 触发条件：向main分支推送代码时执行</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build-and-deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"> </span><span class="c1"># 运行环境：Ubuntu系统</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout main branch</span><span class="w"> </span><span class="c1"># 步骤1：拉取main分支的源文件</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python</span><span class="w"> </span><span class="c1"># 步骤2：安装Python环境（Pelican基于Python）</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.10&#39;</span><span class="w"> </span><span class="c1"># 指定Python版本</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span><span class="w"> </span><span class="c1"># 步骤3：安装Pelican及依赖包</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">          </span><span class="no">pip install pelican markdown pelican-photos # 安装所需包</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Pelican site</span><span class="w"> </span><span class="c1"># 步骤4：生成静态网站文件</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pelican content -s publishconf.py</span><span class="w"> </span><span class="c1"># 执行pelican命令，生成output目录</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to gh-pages</span><span class="w"> </span><span class="c1"># 步骤5：将output文件推送到gh-pages分支</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span><span class="w"> </span><span class="c1"># GitHub自动生成的令牌（无需手动配置）</span>
+<span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./output</span><span class="w"> </span><span class="c1"># 要部署的目录（即Pelican生成的output）</span>
+<span class="w">          </span><span class="nt">publish_branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gh-pages</span><span class="w"> </span><span class="c1"># 部署到的分支</span>
+</code></pre></div>
+
+<h3>3. 自动化流程拆解（一张图看懂）</h3>
+<p><img alt="main分支的源文件结构" src="{photo}/branch-deploy/auto-deploy-flow.png">
+1. 你在本地main分支写好文章，执行<code>git push origin main</code>，将源文件推送到GitHub的main分支；
+2. GitHub检测到main分支有新推送，触发pelican.yml定义的工作流；
+3. 工作流在Ubuntu环境中自动安装Python、Pelican及依赖；
+4. 运行<code>pelican content</code>命令，从源文件生成静态网站到output目录；
+5. 将output目录的所有文件推送到gh-pages分支；
+6. GitHub Pages自动读取gh-pages分支的文件，更新博客页面（一般1-2分钟生效）。</p>
+<h2>三、实战：规范的博客版本管理方法（源文件+发布版本）</h2>
+<p>搞懂了分支和自动化部署后，核心是掌握「源文件版本管理」和「发布版本管理」的规范流程，避免文件混乱。</p>
+<h3>1. 源文件版本管理（main分支）</h3>
+<p>源文件是你的「创作素材」，必须做好版本控制，方便回滚、备份、多设备同步。</p>
+<h4>核心操作步骤（本地操作）</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. 确保当前在main分支（如果不在，切换到main）</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+
+<span class="c1"># 2. 新建/修改文章（在content目录下写.md文件）</span>
+<span class="c1"># 例如：在content目录新建article2.md，写完文章</span>
+
+<span class="c1"># 3. 查看修改的文件</span>
+git<span class="w"> </span>status
+
+<span class="c1"># 4. 将修改添加到暂存区</span>
+git<span class="w"> </span>add<span class="w"> </span>content/article2.md<span class="w"> </span><span class="c1"># 单个文件，或用git add . 添加所有修改</span>
+
+<span class="c1"># 5. 提交修改（写清楚提交说明，方便后续查看）</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;添加第二篇博客：分支管理与自动化部署&quot;</span>
+
+<span class="c1"># 6. 推送到GitHub的main分支（触发自动化部署）</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+
+<h4>版本管理技巧</h4>
+<ul>
+<li>每次写完一篇文章或修改配置后，及时提交（commit），提交说明要清晰（比如「修改站点标题」「添加Python教程文章」）；</li>
+<li>如果需要回滚到之前的版本，用<code>git log</code>查看提交记录，找到要回滚的commit-id，执行<code>git reset --hard commit-id</code>（谨慎使用，会覆盖本地修改）；</li>
+<li>多设备同步：在另一台电脑上，克隆仓库的main分支即可获取所有源文件：
+  <code>bash
+  git clone -b main https://github.com/unclevicky/unclevicky.github.io.git
+  cd unclevicky.github.io
+  # 安装依赖（如果需要本地测试）
+  pip install pelican markdown pelican-photos</code></li>
+</ul>
+<h3>2. 发布版本管理（gh-pages分支）</h3>
+<p>发布版本是生成的静态文件，完全由自动化流程管理，无需手动操作：
+- 无需手动切换到gh-pages分支修改文件，所有更新都通过main分支的推送自动触发；
+- 如果发布后发现问题（比如文章格式错误），只需在main分支修改源文件，重新提交推送，自动化流程会自动更新gh-pages分支的内容，覆盖旧版本；
+- 如需查看历史发布版本，可在GitHub仓库的「Branches→gh-pages→Commits」中查看，也可通过<code>git checkout gh-pages</code>在本地查看（但不建议修改）。</p>
+<h3>3. 历史master分支的处理建议</h3>
+<p>如果master分支没有实际用途，建议清理掉，避免混淆：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 本地删除master分支（确保已备份必要文件）</span>
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>master
+
+<span class="c1"># 远程删除GitHub仓库的master分支</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>master
+</code></pre></div>
+
+<p>删除后，仓库只剩main（源文件）和gh-pages（发布文件）两个分支，逻辑更清晰。</p>
+<h3>4. 本地测试与自动化部署的配合</h3>
+<p>日常写文章时，建议先本地测试效果，再推送触发自动化部署：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 本地生成静态文件并启动服务</span>
+pelican<span class="w"> </span>content
+<span class="nb">cd</span><span class="w"> </span>output
+python<span class="w"> </span>-m<span class="w"> </span>pelican.server
+<span class="c1"># 访问127.0.0.1:8000查看效果，确认无误后再提交推送</span>
+</code></pre></div>
+
+<h2>四、常见问题排查</h2>
+<ol>
+<li>推送main分支后，博客没更新？</li>
+<li>查看GitHub仓库的「Actions」标签，看pelican.yml工作流是否执行成功（绿色对勾表示成功，红色叉号表示失败）；</li>
+<li>
+<p>若失败，点击查看日志，大概率是依赖安装失败或源文件语法错误（比如markdown格式错误）。</p>
+</li>
+<li>
+<p>gh-pages分支没有自动生成？</p>
+</li>
+<li>检查pelican.yml中<code>publish_branch</code>是否配置为gh-pages；</li>
+<li>
+<p>检查仓库的「Settings→Pages→Source」是否选择「gh-pages分支」（如果没有，手动选择一次即可）。</p>
+</li>
+<li>
+<p>多设备同步时，本地修改与远程main分支冲突？</p>
+</li>
+<li>先拉取远程最新版本：<code>git pull origin main</code>；</li>
+<li>解决冲突文件（打开冲突文件，按提示保留需要的内容）；</li>
+<li>再提交推送：<code>git commit -m "解决同步冲突" &amp;&amp; git push origin main</code>。</li>
+</ol>
+<h2>结尾</h2>
+<p>理清分支分工和自动化部署逻辑后，博客维护会变得非常规范：日常只需专注在main分支写文章、改配置，提交后等待1-2分钟，GitHub Actions就会自动完成部署。main分支负责「记录创作过程」，gh-pages分支负责「展示最终效果」，两者各司其职，既不用担心源文件丢失，也不用手动处理复杂的部署步骤。</p>
+<p>下一篇博客，我会分享Pelican主题更换、插件推荐（比如评论功能、文章搜索）等进阶技巧，让博客功能更丰富～ 如果在分支管理或自动化部署中遇到问题，欢迎在评论区留言交流！</p>
+<p>Proudly powered by Pelican, which takes great advantage of Python.
+Published: 周一 10 六月 2024 Updated: 周一 10 六月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,分支管理,自动化部署,版本控制</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://unclevicky.github.io/tag/pelican.html">pelican</a>
+      <a href="https://unclevicky.github.io/tag/githubio.html">github.io</a>
+      <a href="https://unclevicky.github.io/tag/fen-zhi-guan-li.html">分支管理</a>
+      <a href="https://unclevicky.github.io/tag/zi-dong-hua-bu-shu.html">自动化部署</a>
+      <a href="https://unclevicky.github.io/tag/ban-ben-kong-zhi.html">版本控制</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " 田冲憨娃 ",
+  "url" : "https://unclevicky.github.io",
+  "image": "",
+  "description": ""
+}
+</script>
+</body>
+</html>
