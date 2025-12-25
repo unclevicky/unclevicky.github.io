@@ -1,5 +1,5 @@
 # .gitignore
-output/      # 忽略生成的网站文件
+output/
 __pycache__/
 *.py[cod]
 *$py.class
