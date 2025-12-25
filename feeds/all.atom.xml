@@ -1,5 +1,325 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>田冲憨娃</title><link href="https://unclevicky.github.io/" rel="alternate"/><link href="https://unclevicky.github.io/feeds/all.atom.xml" rel="self"/><id>https://unclevicky.github.io/</id><updated>2025-12-24T14:30:00+08:00</updated><entry><title>使用pelican搭建博客的三种图片使用方式</title><link href="https://unclevicky.github.io/2025/12/pelican-image-usage/" rel="alternate"/><published>2025-12-24T14:30:00+08:00</published><updated>2025-12-24T14:30:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:unclevicky.github.io,2025-12-24:/2025/12/pelican-image-usage/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>田冲憨娃</title><link href="https://unclevicky.github.io/" rel="alternate"/><link href="https://unclevicky.github.io/feeds/all.atom.xml" rel="self"/><id>https://unclevicky.github.io/</id><updated>2025-12-25T10:14:00+08:00</updated><entry><title>Pelican+GitHub.io博客美化指南：主题更换、CSS自定义与样式个性化</title><link href="https://unclevicky.github.io/2025/12/pelican-blog-customization/" rel="alternate"/><published>2025-12-25T10:14:00+08:00</published><updated>2025-12-25T10:14:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:unclevicky.github.io,2025-12-25:/2025/12/pelican-blog-customization/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
+&lt;p&gt;前三篇博客已经搞定了Pelican+GitHub.io的基础搭建、分支管理与版本控制，还有图片插入的三种方式。博客能正常写、正常发，但默认的Pelican样式总觉得少了点个性——字 …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;前言&lt;/h3&gt;
+&lt;p&gt;前三篇博客已经搞定了Pelican+GitHub.io的基础搭建、分支管理与版本控制，还有图片插入的三种方式。博客能正常写、正常发，但默认的Pelican样式总觉得少了点个性——字体单调、颜色平淡、布局不够灵活，跟市面上那些精致的个人博客比起来差了点味道。&lt;/p&gt;
+&lt;p&gt;其实Pelican的强大之处不仅在于静态部署的高效，更在于灵活的样式自定义能力。这篇文章就带大家一步步美化博客：从简单的主题更换，到精细化的CSS自定义，再到导航栏、图标、排版等细节优化，让你的博客既能保持技术博客的简洁，又能拥有专属的视觉风格。全程步骤详细，新手也能跟着操作，文末还会分享实用的主题推荐和避坑指南～&lt;/p&gt;
+&lt;h2&gt;一、第一步：更换Pelican主题（最直接的美化方式）&lt;/h2&gt;
+&lt;p&gt;Pelican有大量开源主题可供选择，涵盖简约、科技、文艺等多种风格，更换主题只需3步：找主题→下载主题→配置主题，无需修改核心代码。&lt;/p&gt;
+&lt;h3&gt;1. 常用Pelican主题推荐（附特点+地址）&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;主题名称&lt;/th&gt;
+&lt;th&gt;风格特点&lt;/th&gt;
+&lt;th&gt;适用场景&lt;/th&gt;
+&lt;th&gt;官方地址&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Flex&lt;/td&gt;
+&lt;td&gt;简约现代、响应式设计（适配手机/电脑）&lt;/td&gt;
+&lt;td&gt;技术博客、笔记分享&lt;/td&gt;
+&lt;td&gt;https://github.com/alexandrevicenzi/Flex&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alabaster&lt;/td&gt;
+&lt;td&gt;简洁干净、学术风&lt;/td&gt;
+&lt;td&gt;教程、文档类博客&lt;/td&gt;
+&lt;td&gt;https://github.com/bitprophet/alabaster&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Noto&lt;/td&gt;
+&lt;td&gt;文艺清新、支持暗色模式&lt;/td&gt;
+&lt;td&gt;生活分享、随笔类博客&lt;/td&gt;
+&lt;td&gt;https://github.com/getpelican/pelican-themes/tree/master/noto&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pelican-Bootstrap3&lt;/td&gt;
+&lt;td&gt;功能丰富、布局灵活&lt;/td&gt;
+&lt;td&gt;综合类博客（技术+生活）&lt;/td&gt;
+&lt;td&gt;https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Attila&lt;/td&gt;
+&lt;td&gt;极简主义、高对比度&lt;/td&gt;
+&lt;td&gt;专注内容的技术博客&lt;/td&gt;
+&lt;td&gt;https://github.com/arulrajnet/attila&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;本文以最受欢迎的「Flex主题」为例，演示更换流程（其他主题操作逻辑一致）。&lt;/p&gt;
+&lt;h3&gt;2. 下载主题到本地博客目录&lt;/h3&gt;
+&lt;h4&gt;方式1：直接克隆主题仓库（推荐，方便后续自定义）&lt;/h4&gt;
+&lt;p&gt;在博客根目录（&lt;code&gt;unclevicky.github.io&lt;/code&gt;，即main分支根目录）下，创建&lt;code&gt;themes&lt;/code&gt;文件夹，用于存放所有主题文件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 进入博客根目录（main分支下）&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;unclevicky.github.io
+&lt;span class="c1"&gt;# 创建themes文件夹&lt;/span&gt;
+mkdir&lt;span class="w"&gt; &lt;/span&gt;themes
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;themes
+&lt;span class="c1"&gt;# 克隆Flex主题到themes目录&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/alexandrevicenzi/Flex.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;克隆完成后，&lt;code&gt;themes/Flex&lt;/code&gt;目录下就是完整的主题文件（包含HTML模板、CSS样式、JS脚本等）。&lt;/p&gt;
+&lt;h4&gt;方式2：使用pelican-themes工具安装（适合快速试用）&lt;/h4&gt;
+&lt;p&gt;如果只是想临时试用多个主题，可通过&lt;code&gt;pelican-themes&lt;/code&gt;工具一键安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 先安装pelican-themes工具&lt;/span&gt;
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;pelican-themes
+&lt;span class="c1"&gt;# 安装Flex主题（自动从官方仓库拉取）&lt;/span&gt;
+pelican-themes&lt;span class="w"&gt; &lt;/span&gt;--install&lt;span class="w"&gt; &lt;/span&gt;https://github.com/alexandrevicenzi/Flex.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;3. 配置pelicanconf.py，启用新主题&lt;/h3&gt;
+&lt;p&gt;打开博客根目录的&lt;code&gt;pelicanconf.py&lt;/code&gt;文件，添加/修改以下配置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# pelicanconf.py&lt;/span&gt;
+&lt;span class="c1"&gt;# 1. 指定主题路径（方式1克隆到themes目录时使用）&lt;/span&gt;
+&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;themes/Flex&amp;#39;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 2. 主题基础配置（Flex主题专属，根据需求调整）&lt;/span&gt;
+&lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;田冲憨娃的技术笔记&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# 博客名称（会显示在导航栏）&lt;/span&gt;
+&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://unclevicky.github.io&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# 你的博客地址&lt;/span&gt;
+&lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;unclevicky&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# 作者名称&lt;/span&gt;
+&lt;span class="n"&gt;DESCRIPTION&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;分享Python、Pelican、GitHub相关技术与生活随笔&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# 博客描述（搜索引擎优化用）&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 3. 导航栏菜单自定义（默认菜单可能不全，按需添加）&lt;/span&gt;
+&lt;span class="n"&gt;MENUITEMS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;首页&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;技术教程&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/category/技术.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;生活随笔&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/category/生活.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;关于我&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/pages/about.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 4. 开启暗色模式（Flex主题支持自动切换）&lt;/span&gt;
+&lt;span class="n"&gt;THEME_COLOR_AUTO&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;  &lt;span class="c1"&gt;# 跟随系统自动切换亮色/暗色模式&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;4. 本地测试主题效果&lt;/h3&gt;
+&lt;p&gt;配置完成后，生成静态文件并启动本地服务：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 博客根目录执行&lt;/span&gt;
+pelican&lt;span class="w"&gt; &lt;/span&gt;content&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# 生成新主题的静态文件&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;output
+python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;pelican.server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;打开&lt;code&gt;127.0.0.1:8000&lt;/code&gt;，就能看到博客样式已经变成Flex主题的简约风格，对比默认主题的效果如下：&lt;/p&gt;
+&lt;p _="%" endgallery&gt;{% gallery %}
+photos/default-theme.jpg "Pelican默认主题效果"
+photos/flex-theme.jpg "Flex主题效果（亮色模式）"
+photos/flex-dark-theme.jpg "Flex主题效果（暗色模式）"&lt;/p&gt;
+&lt;h3&gt;5. 推送更新到GitHub（触发自动化部署）&lt;/h3&gt;
+&lt;p&gt;确认效果满意后，提交修改并推送main分支，自动化流程会自动部署新主题：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 博客根目录执行（main分支下）&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;pelicanconf.py&lt;span class="w"&gt; &lt;/span&gt;themes/&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# 添加配置文件和主题目录&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;更换博客主题为Flex&amp;quot;&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;push&lt;span class="w"&gt; &lt;/span&gt;origin&lt;span class="w"&gt; &lt;/span&gt;main
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;等待1-2分钟后，访问&lt;code&gt;https://unclevicky.github.io&lt;/code&gt;，线上博客就会同步更新样式～&lt;/p&gt;
+&lt;h2&gt;二、第二步：自定义CSS（精细化调整样式，打造专属风格）&lt;/h2&gt;
+&lt;p&gt;更换主题后，可能还是觉得某些细节不符合预期（比如字体太小、颜色不好看、间距太挤），这时候可以通过自定义CSS覆盖主题默认样式，实现精细化美化。&lt;/p&gt;
+&lt;h3&gt;1. 创建自定义CSS文件&lt;/h3&gt;
+&lt;p&gt;在&lt;code&gt;content&lt;/code&gt;目录下创建&lt;code&gt;static/css&lt;/code&gt;文件夹，新建&lt;code&gt;custom.css&lt;/code&gt;文件（用于编写自定义样式）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# 进入content目录&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;unclevicky.github.io/content
+&lt;span class="c1"&gt;# 创建静态资源目录（CSS、JS等都放这里）&lt;/span&gt;
+mkdir&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;static/css
+&lt;span class="c1"&gt;# 新建自定义CSS文件（可直接在文件夹中右键创建，无需命令行）&lt;/span&gt;
+touch&lt;span class="w"&gt; &lt;/span&gt;static/css/custom.css
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;2. 配置pelican识别自定义CSS&lt;/h3&gt;
+&lt;p&gt;打开&lt;code&gt;pelicanconf.py&lt;/code&gt;，添加&lt;code&gt;EXTRA_PATH_METADATA&lt;/code&gt;和&lt;code&gt;CUSTOM_CSS&lt;/code&gt;配置（告诉Pelican加载自定义CSS）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# pelicanconf.py&lt;/span&gt;
+&lt;span class="c1"&gt;# 1. 指定静态文件路径（让Pelican生成时复制static目录到output）&lt;/span&gt;
+&lt;span class="n"&gt;STATIC_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;images&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;photos&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;static&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# 之前的图片目录+新增的static目录&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 2. 配置自定义CSS路径（不同主题可能字段不同，Flex主题用CUSTOM_CSS）&lt;/span&gt;
+&lt;span class="n"&gt;CUSTOM_CSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;static/css/custom.css&amp;#39;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 注：如果是其他主题（如Pelican-Bootstrap3），可能需要用以下配置：&lt;/span&gt;
+&lt;span class="c1"&gt;# EXTRA_CSS = [&amp;#39;static/css/custom.css&amp;#39;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;3. 常用自定义CSS示例（直接复制可用）&lt;/h3&gt;
+&lt;p&gt;打开&lt;code&gt;custom.css&lt;/code&gt;，根据需求添加样式，以下是高频使用的自定义项，可按需修改：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;/* 1. 全局字体调整（替换为更美观的字体） */&lt;/span&gt;
+&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;font-family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Microsoft YaHei&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;PingFang SC&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Helvetica Neue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Arial&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;sans-serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 正文字体大小 */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;line-height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1.8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 行高（增强可读性） */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#333&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 正文颜色（默认偏灰，改为深黑更清晰） */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* 2. 标题样式调整 */&lt;/span&gt;
+&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;h4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#2c3e50&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 标题颜色（深蓝色，更显专业） */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;margin-top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;margin-bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 一级标题大小 */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border-bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;solid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#3498db&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 标题下划线 */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;padding-bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* 3. 链接样式（默认蓝色，hover时变色+下划线） */&lt;/span&gt;
+&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#3498db&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;text-decoration&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;hover&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#2980b9&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;text-decoration&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;underline&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* 4. 代码块样式（默认样式可能单调，优化背景和边框） */&lt;/span&gt;
+&lt;span class="nt"&gt;pre&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#f8f9fa&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;solid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#eee&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border-radius&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 圆角 */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;overflow-x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 横向滚动（避免代码溢出） */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nt"&gt;code&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#e74c3c&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* 代码颜色（红色，突出显示） */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#f1f1f1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border-radius&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* 5. 文章段落间距（增强可读性） */&lt;/span&gt;
+&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;margin-bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* 6. 侧边栏样式（Flex主题侧边栏） */&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;sidebar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mh"&gt;#fafafa&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border-radius&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;4. 测试自定义CSS效果&lt;/h3&gt;
+&lt;p&gt;重新生成静态文件并启动本地服务，查看样式变化：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pelican&lt;span class="w"&gt; &lt;/span&gt;content
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;output
+python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;pelican.server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;对比自定义前后的效果，调整CSS参数直到满意：&lt;/p&gt;
+&lt;p _="%" endgallery&gt;{% gallery %}
+photos/before-css.jpg "自定义CSS前（Flex默认样式）"
+photos/after-css.jpg "自定义CSS后（调整字体、颜色、间距）"&lt;/p&gt;
+&lt;h2&gt;三、第三步：个性化细节配置（让博客更有辨识度）&lt;/h2&gt;
+&lt;p&gt;除了主题和CSS，这些细节配置能进一步提升博客的质感，让它从「模板化」变成「专属化」。&lt;/p&gt;
+&lt;h3&gt;1. 添加站点图标（Favicon）&lt;/h3&gt;
+&lt;p&gt;站点图标是浏览器标签栏的小图标，能提升博客辨识度，步骤如下：
+1. 准备一张16×16或32×32像素的图标图片（格式为.ico或.png），命名为&lt;code&gt;favicon.ico&lt;/code&gt;；
+2. 将图片放入&lt;code&gt;content/static&lt;/code&gt;目录；
+3. 在&lt;code&gt;pelicanconf.py&lt;/code&gt;中添加配置：
+   &lt;code&gt;python
+   # pelicanconf.py
+   FAVICON = 'static/favicon.ico'  # Flex主题专用配置
+   # 其他主题可能需要用：EXTRA_PATH_METADATA = {'static/favicon.ico': {'path': 'favicon.ico'}}&lt;/code&gt;
+4. 生成并测试：本地服务中刷新页面，浏览器标签栏会显示自定义图标。&lt;/p&gt;
+&lt;h3&gt;2. 自定义导航栏菜单&lt;/h3&gt;
+&lt;p&gt;之前在主题配置中提到了&lt;code&gt;MENUITEMS&lt;/code&gt;，可以根据博客分类添加/删除菜单，比如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# pelicanconf.py&lt;/span&gt;
+&lt;span class="n"&gt;MENUITEMS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;首页&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;技术教程&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/category/技术.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Pelican系列&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/tag/pelican.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;  &lt;span class="c1"&gt;# 按标签分类的页面&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Python笔记&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/tag/python.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;生活随笔&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/category/生活.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;关于我&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/pages/about.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;  &lt;span class="c1"&gt;# 静态页面（后面会讲）&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;如果需要添加外部链接（比如GitHub、CSDN），格式为：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;GitHub&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://github.com/unclevicky&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;CSDN&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://blog.csdn.net/unclevicky&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;3. 添加静态页面（如「关于我」「联系方式」）&lt;/h3&gt;
+&lt;p&gt;静态页面适用于不需要更新的内容（如个人简介、联系方式），步骤如下：
+1. 在&lt;code&gt;content&lt;/code&gt;目录下创建&lt;code&gt;pages&lt;/code&gt;文件夹：
+   &lt;code&gt;bash
+   cd content
+   mkdir pages&lt;/code&gt;
+2. 在&lt;code&gt;pages&lt;/code&gt;目录下新建&lt;code&gt;about.md&lt;/code&gt;文件，内容如下：
+   ```markdown
+   Title: 关于我
+   Date: 2024-07-05
+   Slug: about
+   Status: published  # 标记为已发布&lt;/p&gt;
+&lt;p&gt;### 个人简介
+   大家好，我是田冲憨娃（unclevicky），一名热爱技术的程序员，专注于Python、Web开发和工具折腾。&lt;/p&gt;
+&lt;p&gt;喜欢用文字记录学习过程，也乐于分享实用的技术教程，希望这篇Pelican系列能帮到更多想搭建个人博客的朋友～&lt;/p&gt;
+&lt;p&gt;### 联系方式
+   - GitHub: &lt;a href="https://github.com/unclevicky"&gt;unclevicky&lt;/a&gt;
+   - 邮箱: unclevicky@example.com
+   &lt;code&gt;``
+3. 生成静态文件后，访问&lt;/code&gt;127.0.0.1:8000/pages/about.html`即可看到页面，导航栏的「关于我」会自动链接到该页面。&lt;/p&gt;
+&lt;h3&gt;4. 启用评论功能（让博客支持互动）&lt;/h3&gt;
+&lt;p&gt;Pelican本身不自带评论功能，可通过第三方工具Disqus或Giscus添加，以Giscus（基于GitHub Discussions，免费无广告）为例：
+1. 按照Giscus官网（https://giscus.app/）步骤，关联你的GitHub仓库，生成嵌入代码；
+2. 在主题目录（&lt;code&gt;themes/Flex/templates&lt;/code&gt;）下，找到&lt;code&gt;article.html&lt;/code&gt;文件（文章详情页模板）；
+3. 在文件末尾（&lt;code&gt;&amp;lt;/article&amp;gt;&lt;/code&gt;标签后）添加生成的Giscus代码；
+4. 重新生成博客，文章底部会出现评论区，访客可通过GitHub账号登录评论。&lt;/p&gt;
+&lt;h3&gt;5. 调整文章排版（添加封面图、摘要）&lt;/h3&gt;
+&lt;p&gt;在markdown文章的头部添加&lt;code&gt;Image&lt;/code&gt;和&lt;code&gt;Summary&lt;/code&gt;字段，可实现文章封面图和摘要显示（Flex主题支持）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Title: 使用pelican搭建博客的三种图片使用方式
+Date: 2024-05-20 15:30
+Modified: 2024-05-20 15:30
+Category: 技术,教程
+Tags: pelican,github.io,图片使用
+Slug: pelican-image-usage
+Author: 田冲憨娃
+Image: photos/cover-image.jpg  # 文章封面图（路径为content/photos下的文件）
+Summary: 本文详细介绍Pelican博客的三种图片使用方式，从直接引用到插件使用，再到GitHub图床，新手也能轻松上手～
+
+&lt;span class="gu"&gt;### 前言&lt;/span&gt;
+上一篇博客分享了如何用pelican+github.io搭建个人博客...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;效果：博客首页会显示文章封面图和摘要，点击后进入完整文章，排版更美观。&lt;/p&gt;
+&lt;h2&gt;四、常见问题排查（避坑指南）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;更换主题后样式错乱/无法加载？&lt;/li&gt;
+&lt;li&gt;检查&lt;code&gt;THEME&lt;/code&gt;路径是否正确（比如克隆主题到themes目录，路径应为&lt;code&gt;themes/Flex&lt;/code&gt;，而非&lt;code&gt;Flex&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;查看&lt;code&gt;pelican content&lt;/code&gt;生成日志，是否有「Theme not found」错误，若有则重新克隆主题；&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;清除浏览器缓存，或用无痕模式测试。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自定义CSS不生效？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;检查&lt;code&gt;STATIC_PATHS&lt;/code&gt;是否包含&lt;code&gt;static&lt;/code&gt;目录（确保Pelican生成时复制CSS文件）；&lt;/li&gt;
+&lt;li&gt;确认主题支持的CSS配置字段（Flex用&lt;code&gt;CUSTOM_CSS&lt;/code&gt;，Bootstrap3用&lt;code&gt;EXTRA_CSS&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用浏览器「检查元素」功能，查看CSS是否被主题默认样式覆盖（可在自定义CSS中添加&lt;code&gt;!important&lt;/code&gt;强制生效，如&lt;code&gt;color: #333 !important;&lt;/code&gt;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;站点图标（Favicon）不显示？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;图片尺寸是否符合要求（16×16或32×32像素）；&lt;/li&gt;
+&lt;li&gt;路径配置是否正确（确保生成后output目录下有&lt;code&gt;static/favicon.ico&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;部分浏览器需要重启才能生效。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;五、推荐主题搭配方案（直接抄作业）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;技术教程类博客：Flex主题 + 自定义CSS（调整代码块样式、字体间距） + 代码高亮插件（&lt;code&gt;pelican-code-highlighter&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;生活随笔类博客：Noto主题 + 暗色模式 + 封面图功能 + 简约CSS；&lt;/li&gt;
+&lt;li&gt;综合类博客：Pelican-Bootstrap3 + 多导航菜单 + 评论功能 + 图片懒加载插件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;结尾&lt;/h2&gt;
+&lt;p&gt;通过主题更换、CSS自定义和细节配置，你的Pelican博客已经从默认的「朴素风格」变成了有专属风格的「个性化博客」。其实美化博客的核心不是堆砌特效，而是让样式服务于内容——清晰的排版、舒适的字体、协调的颜色，能让读者更专注于你的文章本身。&lt;/p&gt;
+&lt;p&gt;这篇文章是Pelican系列的第四篇，后续还会分享插件推荐（搜索、统计、图片懒加载）、SEO优化（搜索引擎收录）等内容。如果在样式自定义过程中遇到问题，或者有好看的主题想推荐，欢迎在评论区留言交流～&lt;/p&gt;
+&lt;p&gt;Proudly powered by Pelican, which takes great advantage of Python.
+Published: 周五 05 七月 2024 Updated: 周五 05 七月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,博客美化,主题更换,CSS自定义&lt;/p&gt;</content><category term="技术,教程"/><category term="pelican"/><category term="github.io"/><category term="博客美化"/><category term="主题更换"/><category term="CSS自定义"/></entry><entry><title>使用pelican搭建博客的三种图片使用方式</title><link href="https://unclevicky.github.io/2025/12/pelican-image-usage/" rel="alternate"/><published>2025-12-24T14:30:00+08:00</published><updated>2025-12-24T14:30:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:unclevicky.github.io,2025-12-24:/2025/12/pelican-image-usage/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;上一篇博客分享了如何用pelican+github.io搭建个人博客，完成基础搭建后，写文章时难免会遇到插入图片的需求——不管是技术教程的步骤截 …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;上一篇博客分享了如何用pelican+github.io搭建个人博客，完成基础搭建后，写文章时难免会遇到插入图片的需求——不管是技术教程的步骤截图、生活分享的实拍照片，还是笔记中的示意图，合适的图片能让内容更直观。&lt;/p&gt;
 &lt;p&gt;这篇文章就来详细拆解三种实用的图片使用方式，从最简单的直接引用到功能丰富的插件使用，再到灵活的github图床方案，每一步都有具体操作，新手也能轻松上手。本篇博客的示例图片，将采用第二种方式（pelican-photos插件）实现，大家可以直观看到最终效果～&lt;/p&gt;
