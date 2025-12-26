@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>田冲憨娃 - 技术,教程</title><link href="https://unclevicky.github.io/" rel="alternate"/><link href="https://unclevicky.github.io/feeds/ji-zhu-jiao-cheng.atom.xml" rel="self"/><id>https://unclevicky.github.io/</id><updated>2025-12-25T10:14:00+08:00</updated><entry><title>Pelican+GitHub.io博客美化指南：主题更换、CSS自定义与样式个性化</title><link href="https://unclevicky.github.io/2025/12/pelican-blog-customization/" rel="alternate"/><published>2025-12-25T10:14:00+08:00</published><updated>2025-12-25T10:14:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:unclevicky.github.io,2025-12-25:/2025/12/pelican-blog-customization/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>田冲憨娃 - 技术,教程</title><link href="https://xiongyiduoduo.top/" rel="alternate"/><link href="https://xiongyiduoduo.top/feeds/ji-zhu-jiao-cheng.atom.xml" rel="self"/><id>https://xiongyiduoduo.top/</id><updated>2025-12-25T10:14:00+08:00</updated><entry><title>Pelican+GitHub.io博客美化指南：主题更换、CSS自定义与样式个性化</title><link href="https://xiongyiduoduo.top/2025/12/pelican-blog-customization/" rel="alternate"/><published>2025-12-25T10:14:00+08:00</published><updated>2025-12-25T10:14:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:xiongyiduoduo.top,2025-12-25:/2025/12/pelican-blog-customization/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;前三篇博客已经搞定了Pelican+GitHub.io的基础搭建、分支管理与版本控制，还有图片插入的三种方式。博客能正常写、正常发，但默认的Pelican样式总觉得少了点个性——字 …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;前三篇博客已经搞定了Pelican+GitHub.io的基础搭建、分支管理与版本控制，还有图片插入的三种方式。博客能正常写、正常发，但默认的Pelican样式总觉得少了点个性——字体单调、颜色平淡、布局不够灵活，跟市面上那些精致的个人博客比起来差了点味道。&lt;/p&gt;
 &lt;p&gt;其实Pelican的强大之处不仅在于静态部署的高效，更在于灵活的样式自定义能力。这篇文章就带大家一步步美化博客：从简单的主题更换，到精细化的CSS自定义，再到导航栏、图标、排版等细节优化，让你的博客既能保持技术博客的简洁，又能拥有专属的视觉风格。全程步骤详细，新手也能跟着操作，文末还会分享实用的主题推荐和避坑指南～&lt;/p&gt;
@@ -319,7 +319,7 @@ Summary: 本文详细介绍Pelican博客的三种图片使用方式，从直接�
 &lt;p&gt;通过主题更换、CSS自定义和细节配置，你的Pelican博客已经从默认的「朴素风格」变成了有专属风格的「个性化博客」。其实美化博客的核心不是堆砌特效，而是让样式服务于内容——清晰的排版、舒适的字体、协调的颜色，能让读者更专注于你的文章本身。&lt;/p&gt;
 &lt;p&gt;这篇文章是Pelican系列的第四篇，后续还会分享插件推荐（搜索、统计、图片懒加载）、SEO优化（搜索引擎收录）等内容。如果在样式自定义过程中遇到问题，或者有好看的主题想推荐，欢迎在评论区留言交流～&lt;/p&gt;
 &lt;p&gt;Proudly powered by Pelican, which takes great advantage of Python.
-Published: 周五 05 七月 2024 Updated: 周五 05 七月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,博客美化,主题更换,CSS自定义&lt;/p&gt;</content><category term="技术,教程"/><category term="pelican"/><category term="github.io"/><category term="博客美化"/><category term="主题更换"/><category term="CSS自定义"/></entry><entry><title>使用pelican搭建博客的三种图片使用方式</title><link href="https://unclevicky.github.io/2025/12/pelican-image-usage/" rel="alternate"/><published>2025-12-24T14:30:00+08:00</published><updated>2025-12-24T14:30:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:unclevicky.github.io,2025-12-24:/2025/12/pelican-image-usage/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
+Published: 周五 05 七月 2024 Updated: 周五 05 七月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,博客美化,主题更换,CSS自定义&lt;/p&gt;</content><category term="技术,教程"/><category term="pelican"/><category term="github.io"/><category term="博客美化"/><category term="主题更换"/><category term="CSS自定义"/></entry><entry><title>使用pelican搭建博客的三种图片使用方式</title><link href="https://xiongyiduoduo.top/2025/12/pelican-image-usage/" rel="alternate"/><published>2025-12-24T14:30:00+08:00</published><updated>2025-12-24T14:30:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:xiongyiduoduo.top,2025-12-24:/2025/12/pelican-image-usage/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;上一篇博客分享了如何用pelican+github.io搭建个人博客，完成基础搭建后，写文章时难免会遇到插入图片的需求——不管是技术教程的步骤截 …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;上一篇博客分享了如何用pelican+github.io搭建个人博客，完成基础搭建后，写文章时难免会遇到插入图片的需求——不管是技术教程的步骤截图、生活分享的实拍照片，还是笔记中的示意图，合适的图片能让内容更直观。&lt;/p&gt;
 &lt;p&gt;这篇文章就来详细拆解三种实用的图片使用方式，从最简单的直接引用到功能丰富的插件使用，再到灵活的github图床方案，每一步都有具体操作，新手也能轻松上手。本篇博客的示例图片，将采用第二种方式（pelican-photos插件）实现，大家可以直观看到最终效果～&lt;/p&gt;
@@ -523,7 +523,7 @@ mkdir&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;t
     &lt;!-- 主图显示区域 --&gt;
     &lt;div class="gallery-main"&gt;
         &lt;div class="gallery-main-image"&gt;
-            &lt;img id="gallery-main-img" src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flow" alt="None"&gt;
+            &lt;img id="gallery-main-img" src="https://xiongyiduoduo.top/photos/branch-deploy/auto-deploy-flow" alt="None"&gt;
             &lt;div class="gallery-caption" id="gallery-caption"&gt;None&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -531,17 +531,17 @@ mkdir&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;t
     &lt;!-- 缩略图滚动区域 --&gt;
     &lt;div class="gallery-thumbs-container"&gt;
         &lt;div class="gallery-thumbs" id="gallery-thumbs"&gt;
-                    &lt;div class="gallery-thumb" data-src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flow" data-caption="None"&gt;
-                        &lt;img src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flowt" alt="None"&gt;
+                    &lt;div class="gallery-thumb" data-src="https://xiongyiduoduo.top/photos/branch-deploy/auto-deploy-flow" data-caption="None"&gt;
+                        &lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/auto-deploy-flowt" alt="None"&gt;
                     &lt;/div&gt;
-                    &lt;div class="gallery-thumb" data-src="https://unclevicky.github.io/photos/branch-deploy/branch-intro" data-caption="None"&gt;
-                        &lt;img src="https://unclevicky.github.io/photos/branch-deploy/branch-introt" alt="None"&gt;
+                    &lt;div class="gallery-thumb" data-src="https://xiongyiduoduo.top/photos/branch-deploy/branch-intro" data-caption="None"&gt;
+                        &lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/branch-introt" alt="None"&gt;
                     &lt;/div&gt;
-                    &lt;div class="gallery-thumb" data-src="https://unclevicky.github.io/photos/branch-deploy/gh-pages-branch-files" data-caption="None"&gt;
-                        &lt;img src="https://unclevicky.github.io/photos/branch-deploy/gh-pages-branch-filest" alt="None"&gt;
+                    &lt;div class="gallery-thumb" data-src="https://xiongyiduoduo.top/photos/branch-deploy/gh-pages-branch-files" data-caption="None"&gt;
+                        &lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/gh-pages-branch-filest" alt="None"&gt;
                     &lt;/div&gt;
-                    &lt;div class="gallery-thumb" data-src="https://unclevicky.github.io/photos/branch-deploy/main-branch-files" data-caption="None"&gt;
-                        &lt;img src="https://unclevicky.github.io/photos/branch-deploy/main-branch-filest" alt="None"&gt;
+                    &lt;div class="gallery-thumb" data-src="https://xiongyiduoduo.top/photos/branch-deploy/main-branch-files" data-caption="None"&gt;
+                        &lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/main-branch-filest" alt="None"&gt;
                     &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -943,8 +943,8 @@ python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;
 
 &lt;h3&gt;实际效果展示&lt;/h3&gt;
 &lt;p&gt;打开&lt;code&gt;127.0.0.1:8000&lt;/code&gt;查看效果，多张图片会以缩略图网格形式排列，点击任意缩略图会弹出大图查看，图片标题会显示在下方：&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://unclevicky.github.io/photos/branch-deploy/branch-introa.jpg" alt="三个分支的功能分工示意图"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://unclevicky.github.io/photos/branch-deploy/main-branch-files.jpg" data-lightbox="branch-deploy"&gt;&lt;img src="https://unclevicky.github.io/photos/branch-deploy/main-branch-filest.jpg" alt="main分支的源文件结构"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/branch-introa.jpg" alt="三个分支的功能分工示意图"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://xiongyiduoduo.top/photos/branch-deploy/main-branch-files.jpg" data-lightbox="branch-deploy"&gt;&lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/main-branch-filest.jpg" alt="main分支的源文件结构"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;注意事项&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;插件名称注意事项&lt;/strong&gt;：pelican-photos插件在pelican中实际注册名为'photos'，而非'pelican_photos'，配置时需注意&lt;/li&gt;
@@ -1049,7 +1049,7 @@ python&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;
 &lt;p&gt;以上就是pelican博客的三种图片使用方式，每一种都经过实际测试，步骤详细可复现。本篇博客的示例图片用pelican-photos插件实现，大家可以直接参考配置参数和语法。&lt;/p&gt;
 &lt;p&gt;如果在操作过程中遇到问题，欢迎在评论区留言交流～ 后续还会分享pelican主题更换、插件推荐等内容，敬请关注！&lt;/p&gt;
 &lt;p&gt;Proudly powered by Pelican, which takes great advantage of Python.
-Published: 周一 20 五月 2024 Updated: 周一 20 五月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,图片使用,python&lt;/p&gt;</content><category term="技术,教程"/><category term="pelican"/><category term="github.io"/><category term="图片使用"/><category term="python"/></entry><entry><title>Pelican+GitHub.io博客进阶：分支管理、自动化部署与版本控制全解析</title><link href="https://unclevicky.github.io/2025/12/pelican-github-branch-deploy/" rel="alternate"/><published>2025-12-24T14:21:00+08:00</published><updated>2025-12-24T14:21:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:unclevicky.github.io,2025-12-24:/2025/12/pelican-github-branch-deploy/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
+Published: 周一 20 五月 2024 Updated: 周一 20 五月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,图片使用,python&lt;/p&gt;</content><category term="技术,教程"/><category term="pelican"/><category term="github.io"/><category term="图片使用"/><category term="python"/></entry><entry><title>Pelican+GitHub.io博客进阶：分支管理、自动化部署与版本控制全解析</title><link href="https://xiongyiduoduo.top/2025/12/pelican-github-branch-deploy/" rel="alternate"/><published>2025-12-24T14:21:00+08:00</published><updated>2025-12-24T14:21:00+08:00</updated><author><name>田冲憨娃</name></author><id>tag:xiongyiduoduo.top,2025-12-24:/2025/12/pelican-github-branch-deploy/</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;上一篇博客分享了用Pelican+GitHub.io搭建个人博客的基础流程，成功部署了第一篇文章到unclevicky.github.io。但随着操作深入，不少朋友（包括我自己）会发现仓库里 …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;上一篇博客分享了用Pelican+GitHub.io搭建个人博客的基础流程，成功部署了第一篇文章到unclevicky.github.io。但随着操作深入，不少朋友（包括我自己）会发现仓库里多了几个分支——main、gh-pages、master，还在main分支下看到了&lt;code&gt;.github/workflow/pelican.yml&lt;/code&gt;文件。&lt;/p&gt;
 &lt;p&gt;这些分支分别是干什么的？yml文件是用来实现什么功能的？博客的源文件（写的文章、配置文件）和发布后的静态文件该怎么分开管理？这篇进阶教程就来一一拆解这些疑问，帮大家理清GitHub仓库的结构逻辑，掌握规范的版本管理方法，让后续写博客、维护博客更高效～&lt;/p&gt;
@@ -1118,7 +1118,7 @@ Published: 周一 20 五月 2024 Updated: 周一 20 五月 2024 By 田冲憨娃 
     &lt;!-- 主图显示区域 --&gt;
     &lt;div class="gallery-main"&gt;
         &lt;div class="gallery-main-image"&gt;
-            &lt;img id="gallery-main-img" src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flow" alt="None"&gt;
+            &lt;img id="gallery-main-img" src="https://xiongyiduoduo.top/photos/branch-deploy/auto-deploy-flow" alt="None"&gt;
             &lt;div class="gallery-caption" id="gallery-caption"&gt;None&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -1126,17 +1126,17 @@ Published: 周一 20 五月 2024 Updated: 周一 20 五月 2024 By 田冲憨娃 
     &lt;!-- 缩略图滚动区域 --&gt;
     &lt;div class="gallery-thumbs-container"&gt;
         &lt;div class="gallery-thumbs" id="gallery-thumbs"&gt;
-                    &lt;div class="gallery-thumb" data-src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flow" data-caption="None"&gt;
-                        &lt;img src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flowt" alt="None"&gt;
+                    &lt;div class="gallery-thumb" data-src="https://xiongyiduoduo.top/photos/branch-deploy/auto-deploy-flow" data-caption="None"&gt;
+                        &lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/auto-deploy-flowt" alt="None"&gt;
                     &lt;/div&gt;
-                    &lt;div class="gallery-thumb" data-src="https://unclevicky.github.io/photos/branch-deploy/branch-intro" data-caption="None"&gt;
-                        &lt;img src="https://unclevicky.github.io/photos/branch-deploy/branch-introt" alt="None"&gt;
+                    &lt;div class="gallery-thumb" data-src="https://xiongyiduoduo.top/photos/branch-deploy/branch-intro" data-caption="None"&gt;
+                        &lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/branch-introt" alt="None"&gt;
                     &lt;/div&gt;
-                    &lt;div class="gallery-thumb" data-src="https://unclevicky.github.io/photos/branch-deploy/gh-pages-branch-files" data-caption="None"&gt;
-                        &lt;img src="https://unclevicky.github.io/photos/branch-deploy/gh-pages-branch-filest" alt="None"&gt;
+                    &lt;div class="gallery-thumb" data-src="https://xiongyiduoduo.top/photos/branch-deploy/gh-pages-branch-files" data-caption="None"&gt;
+                        &lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/gh-pages-branch-filest" alt="None"&gt;
                     &lt;/div&gt;
-                    &lt;div class="gallery-thumb" data-src="https://unclevicky.github.io/photos/branch-deploy/main-branch-files" data-caption="None"&gt;
-                        &lt;img src="https://unclevicky.github.io/photos/branch-deploy/main-branch-filest" alt="None"&gt;
+                    &lt;div class="gallery-thumb" data-src="https://xiongyiduoduo.top/photos/branch-deploy/main-branch-files" data-caption="None"&gt;
+                        &lt;img src="https://xiongyiduoduo.top/photos/branch-deploy/main-branch-filest" alt="None"&gt;
                     &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -1550,7 +1550,7 @@ window.addEventListener('DOMContentLoaded', function() {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;3. 自动化流程拆解（一张图看懂）&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="main分支的源文件结构" src="https://unclevicky.github.io/photos/branch-deploy/auto-deploy-flowa.jpg"&gt;
+&lt;p&gt;&lt;img alt="main分支的源文件结构" src="https://xiongyiduoduo.top/photos/branch-deploy/auto-deploy-flowa.jpg"&gt;
 1. 你在本地main分支写好文章，执行&lt;code&gt;git push origin main&lt;/code&gt;，将源文件推送到GitHub的main分支；
 2. GitHub检测到main分支有新推送，触发pelican.yml定义的工作流；
 3. 工作流在Ubuntu环境中自动安装Python、Pelican及依赖；
