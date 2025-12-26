@@ -313,5 +313,4 @@ Summary: 本文详细介绍Pelican博客的三种图片使用方式，从直接�
 
 这篇文章是Pelican系列的第四篇，后续还会分享插件推荐（搜索、统计、图片懒加载）、SEO优化（搜索引擎收录）等内容。如果在样式自定义过程中遇到问题，或者有好看的主题想推荐，欢迎在评论区留言交流～
 
-Proudly powered by Pelican, which takes great advantage of Python.
-Published: 周五 05 七月 2024 Updated: 周五 05 七月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,博客美化,主题更换,CSS自定义
+Published: 周四 25 十二月 2025 Updated: 周四 25 十二月 2025 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,博客美化,主题更换,CSS自定义

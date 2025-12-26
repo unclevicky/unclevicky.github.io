@@ -182,5 +182,4 @@ python -m pelican.server
 
 下一篇博客，我会分享Pelican主题更换、插件推荐（比如评论功能、文章搜索）等进阶技巧，让博客功能更丰富～ 如果在分支管理或自动化部署中遇到问题，欢迎在评论区留言交流！
 
-Proudly powered by Pelican, which takes great advantage of Python.
-Published: 周一 10 六月 2024 Updated: 周一 10 六月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,分支管理,自动化部署,版本控制
+Published: 周三 24 十二月 2025 Updated: 周三 24 十二月 2025 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,分支管理,自动化部署,版本控制

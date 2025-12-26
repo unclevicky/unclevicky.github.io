@@ -297,5 +297,4 @@ python -m pelican.server
 
 如果在操作过程中遇到问题，欢迎在评论区留言交流～ 后续还会分享pelican主题更换、插件推荐等内容，敬请关注！
 
-Proudly powered by Pelican, which takes great advantage of Python.
-Published: 周一 20 五月 2024 Updated: 周一 20 五月 2024 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,图片使用,python
+Published: 周三 24 十二月 2025 Updated: 周三 20 十二月 2025 By 田冲憨娃 In 技术,教程. tags: pelican,github.io,图片使用,python
